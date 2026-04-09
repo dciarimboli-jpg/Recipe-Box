@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Recipe Box">
+<meta name="apple-mobile-web-app-title" content="CR Recipes">
+<meta name="theme-color" content="#85346C">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>Canyon Ranch Recipes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +55,7 @@
 
   .app-container { max-width: 480px; margin: 0 auto; padding-bottom: 88px; background: var(--bg); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); margin-top: 12px; margin-bottom: 12px; }
 
-  /* ─── Header ─── */
+  /* âââ Header âââ */
   .header {
     background: var(--primary);
     padding: 20px 24px 0;
@@ -72,7 +75,7 @@
     font-weight: 700;
   }
 
-  /* ─── Search ─── */
+  /* âââ Search âââ */
   .search-bar { padding: 16px 0 0; }
   .search-bar input {
     width: 100%;
@@ -101,7 +104,7 @@
     pointer-events: none;
   }
 
-  /* ─── Tabs ─── */
+  /* âââ Tabs âââ */
   .tab-bar {
     display: flex;
     gap: 0;
@@ -129,7 +132,7 @@
   .tab.active { color: var(--primary); border-bottom-color: var(--primary); }
   .tab-icon { font-size: 18px; display: block; margin-bottom: 3px; }
 
-  /* ─── Filter chips ─── */
+  /* âââ Filter chips âââ */
   .filter-row {
     display: flex;
     flex-wrap: wrap;
@@ -155,7 +158,7 @@
     border-color: var(--primary);
   }
 
-  /* ─── Recipe cards ─── */
+  /* âââ Recipe cards âââ */
   .recipe-list { padding: 8px 20px; }
   .recipe-card {
     background: var(--surface);
@@ -213,7 +216,7 @@
     border: 1px solid var(--border);
   }
 
-  /* ─── Recipe detail ─── */
+  /* âââ Recipe detail âââ */
   .detail-overlay {
     position: fixed;
     inset: 0;
@@ -384,7 +387,7 @@
   .add-to-list-btn:active { transform: scale(0.98); background: var(--primary-dark); }
   .added-btn { background: var(--text-tertiary); }
 
-  /* ─── Nutrition ─── */
+  /* âââ Nutrition âââ */
   .nutrition-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -400,7 +403,7 @@
   .nutrition-item .n-val { font-size: 16px; font-weight: 700; color: var(--primary); }
   .nutrition-item .n-label { font-size: 10px; color: var(--text-tertiary); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
 
-  /* ─── Shopping list ─── */
+  /* âââ Shopping list âââ */
   .shopping-section { padding: 20px 24px; }
   .section-title {
     font-family: var(--serif);
@@ -465,7 +468,7 @@
   }
   .remove-recipe-btn:hover { color: var(--danger); background: var(--danger-light); }
 
-  /* ─── Pantry ─── */
+  /* âââ Pantry âââ */
   .pantry-section { padding: 20px 24px; }
   .pantry-input-row { display: flex; gap: 8px; margin-bottom: 16px; }
   .pantry-input {
@@ -526,7 +529,7 @@
     letter-spacing: 0.2px;
   }
 
-  /* ─── Add recipe form ─── */
+  /* âââ Add recipe form âââ */
   .form-section { padding: 20px 24px; }
   .form-group { margin-bottom: 18px; }
   .form-group label {
@@ -572,7 +575,7 @@
   }
   .save-recipe-btn:active { transform: scale(0.98); background: var(--primary-dark); }
 
-  /* ─── Empty states ─── */
+  /* âââ Empty states âââ */
   .empty-state {
     text-align: center;
     padding: 48px 24px;
@@ -581,7 +584,7 @@
   .empty-state .empty-icon { font-size: 40px; margin-bottom: 16px; opacity: 0.5; }
   .empty-state p { font-size: 15px; line-height: 1.6; max-width: 280px; margin: 0 auto; }
 
-  /* ─── Toast ─── */
+  /* âââ Toast âââ */
   .toast {
     position: fixed;
     bottom: 100px;
@@ -603,6 +606,37 @@
     to { opacity: 1; transform: translateX(-50%) translateY(0); }
   }
 
+
+  /* ——— Install banner ——— */
+  .install-banner {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 250;
+    width: calc(100% - 32px);
+    max-width: 380px;
+    animation: toastIn 0.4s ease;
+  }
+  .install-banner-content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow-lg);
+  }
+  .install-banner-dismiss {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+
   .recipe-count {
     font-size: 13px;
     color: var(--text-tertiary);
@@ -610,7 +644,7 @@
     font-weight: 500;
   }
 
-  /* ─── Dividers & misc ─── */
+  /* âââ Dividers & misc âââ */
   .section-divider {
     height: 1px;
     background: var(--border);
@@ -631,7 +665,7 @@
 
 const { useState, useEffect, useMemo } = React;
 
-// ─── RECIPE DATABASE ───
+// âââ RECIPE DATABASE âââ
 const INITIAL_RECIPES = [
   {
     id: 1, name: "Salmon with Miso-Honey Glaze", source: "Canyon Ranch",
@@ -675,7 +709,7 @@ const INITIAL_RECIPES = [
     category: "Salad",
     nutrition: {carbs: "43g", protein: "12g", fat: "8g", fiber: "6g", sodium: "336mg"},
     ingredients: ["2 large tomatoes, sliced in 8 slices","1 medium red bell pepper, cut into quarters","1 medium red onion, sliced","1 medium tomato, peeled and chopped (about 4 ounces) - for vinaigrette","1 teaspoon balsamic vinegar","1 tablespoon olive oil","1/4 teaspoon salt","1 head green leaf lettuce, cleaned and torn into medium pieces","1 cup cooked beans","1/2 cup feta cheese, crumbled"],
-    instructions: ["Preheat oven to 400°F. Lightly coat a sheet pan with olive oil.","Distribute tomatoes, red peppers, and red onions evenly and roast for 15 to 20 minutes or until edges begin to turn brown. Cool and remove skins from tomatoes and peppers. Slice peppers.","To prepare dressing, combine peeled tomato, balsamic vinegar, olive oil and salt in a blender container and puree until smooth.","Arrange 1/4 of lettuce on a large salad plate and sprinkle with 1/4 cup kidney beans. Top with 2 slices roasted tomato, 2 slices roasted onion and 2 slices roasted peppers. Drizzle 2 tablespoons dressing over salad and garnish with 2 tablespoons feta cheese."],
+    instructions: ["Preheat oven to 400Â°F. Lightly coat a sheet pan with olive oil.","Distribute tomatoes, red peppers, and red onions evenly and roast for 15 to 20 minutes or until edges begin to turn brown. Cool and remove skins from tomatoes and peppers. Slice peppers.","To prepare dressing, combine peeled tomato, balsamic vinegar, olive oil and salt in a blender container and puree until smooth.","Arrange 1/4 of lettuce on a large salad plate and sprinkle with 1/4 cup kidney beans. Top with 2 slices roasted tomato, 2 slices roasted onion and 2 slices roasted peppers. Drizzle 2 tablespoons dressing over salad and garnish with 2 tablespoons feta cheese."],
     notes: ""
   },
   {
@@ -684,7 +718,7 @@ const INITIAL_RECIPES = [
     category: "Poultry",
     nutrition: {carbs: "4g", protein: "27g", fat: "4g", fiber: "trace", sodium: "287mg"},
     ingredients: ["1 tablespoon fresh lemon juice","1 tablespoon capers, packed in vinegar and salt, drained","1/2 cup chicken stock","1/4 cup all-purpose flour","4 skinless chicken breast halves, boned and defatted","2 teaspoons oil"],
-    instructions: ["In a small bowl, combine lemon juice, capers and chicken stock. Set aside.","Place flour in a large bowl. Dredge chicken breast in the flour.","Heat a large sauté pan with oil. Sauté chicken over medium heat until chicken is cooked through and golden brown, about 3 to 5 minutes on each side, or until juices run clear when pierced with a fork.","Add lemon juice mixture to pan and cook until sauce begins to thicken, about 2 minutes.","Serve immediately."],
+    instructions: ["In a small bowl, combine lemon juice, capers and chicken stock. Set aside.","Place flour in a large bowl. Dredge chicken breast in the flour.","Heat a large sautÃ© pan with oil. SautÃ© chicken over medium heat until chicken is cooked through and golden brown, about 3 to 5 minutes on each side, or until juices run clear when pierced with a fork.","Add lemon juice mixture to pan and cook until sauce begins to thicken, about 2 minutes.","Serve immediately."],
     notes: "This recipe can easily accommodate the addition of vegetables to the pan: wilt some spinach at the very last moment in the lemony sauce."
   },
   {
@@ -693,7 +727,7 @@ const INITIAL_RECIPES = [
     category: "Vegetable",
     nutrition: {carbs: "19g", protein: "4g", fat: "trace", fiber: "2g", sodium: "197mg"},
     ingredients: ["2 1/2 cups riced cauliflower","1/2 cup diced shallots or onion","1/4 cup diced scallions","1/4 cup diced carrots","1/4 cup frozen peas, defrosted","3 eggs","1/2 teaspoon turmeric","2 tablespoons chopped fresh basil","1 1/2 tablespoons low-sodium tamari"],
-    instructions: ["Pulse cauliflower in a food processor, or grate it with a box grater into tiny pieces.","Spray a large sauté pan or wok with nonstick vegetable spray. Stir-fry shallots, scallions, carrots, and red onion over medium heat until just tender. Add peas and mix well.","Move vegetables to the side of the pan and pour in eggs. Scramble eggs with turmeric and combine with vegetables.","Add cauliflower rice & basil. Sprinkle tamari over rice and mix gently."],
+    instructions: ["Pulse cauliflower in a food processor, or grate it with a box grater into tiny pieces.","Spray a large sautÃ© pan or wok with nonstick vegetable spray. Stir-fry shallots, scallions, carrots, and red onion over medium heat until just tender. Add peas and mix well.","Move vegetables to the side of the pan and pour in eggs. Scramble eggs with turmeric and combine with vegetables.","Add cauliflower rice & basil. Sprinkle tamari over rice and mix gently."],
     notes: "Add whatever vegetables or proteins you like to bulk up this recipe to a full meal."
   },
   {
@@ -711,7 +745,7 @@ const INITIAL_RECIPES = [
     category: "Poultry",
     nutrition: {carbs: "10g", protein: "27g", fat: "8g", fiber: "1g", sodium: "101mg"},
     ingredients: ["2 tablespoons maple syrup","2 tablespoons champagne vinegar","2 tablespoons diced shallots","1/2 cup chicken stock","2 teaspoons water","1/3 cup pecans","1/3 cup flour","1 tablespoon chopped herbs","1/2 teaspoon salt","1/4 teaspoon black pepper","2 teaspoons oil","1/3 cup whole pecans (for candied)","1 egg white","1/4 teaspoon maple syrup","Pinch each: salt, cumin, cinnamon, chili powder","4 skinless chicken breast halves, boned and defatted"],
-    instructions: ["Combine syrup, vinegar and shallots in a small saucepan and bring to a boil. Reduce heat to a simmer and cook until liquid has reduced by 1/2. Add stock and bring back to a boil. Reduce to desired consistency.","Preheat oven to 350°. Combine all ingredients for candied pecans. Spread on a parchment-lined baking sheet. Bake 5-10 minutes until browned. Cool and chop.","Increase oven to 450°F. Coat chicken with crust, about 1 tablespoon per breast. Roast about 20 minutes until 165°F. Serve with maple demi-glace and candied pecans."],
+    instructions: ["Combine syrup, vinegar and shallots in a small saucepan and bring to a boil. Reduce heat to a simmer and cook until liquid has reduced by 1/2. Add stock and bring back to a boil. Reduce to desired consistency.","Preheat oven to 350Â°. Combine all ingredients for candied pecans. Spread on a parchment-lined baking sheet. Bake 5-10 minutes until browned. Cool and chop.","Increase oven to 450Â°F. Coat chicken with crust, about 1 tablespoon per breast. Roast about 20 minutes until 165Â°F. Serve with maple demi-glace and candied pecans."],
     notes: ""
   },
   {
@@ -738,7 +772,7 @@ const INITIAL_RECIPES = [
     category: "Poultry",
     nutrition: {carbs: "24g", protein: "36g", fat: "13g", fiber: "3g", sodium: "584mg"},
     ingredients: ["1 teaspoon olive oil","1 tablespoon minced garlic","1/4 cup onions, julienne","2 cups zucchini, cubed","2 cups cherry tomatoes, halved","1/2 teaspoon salt","1 pinch black pepper","4 tablespoons balsamic vinegar","1 tablespoon fresh basil, chiffonade","1-pound chicken breasts, boneless-skinless","1 cup ground multigrain cereal","1 tablespoon dried basil","1 teaspoon dried oregano","1/4 teaspoon black pepper","1 teaspoon granulated garlic","1/4 cup all-purpose flour","1 whole egg, beaten","4-ounces mozzarella cheese, sliced"],
-    instructions: ["Preheat oven to 450°F convection roast.","Combine oil, garlic, onion, zucchini, tomato, salt, pepper, and vinegar. Toss, transfer to parchment-lined sheet pan and roast about 10 minutes. Cool slightly, top with fresh basil.","Combine ground cereal with herbs, pepper and garlic. Set up breading station with flour and egg.","Pound chicken breasts to 1/4-inch thick. Dredge in flour, egg, then herbed breading. Spray with canola oil.","Bake at 450°F for 10-12 minutes until 165°F. Top with mozzarella and return to oven 1 minute. Serve with vegetable mixture."],
+    instructions: ["Preheat oven to 450Â°F convection roast.","Combine oil, garlic, onion, zucchini, tomato, salt, pepper, and vinegar. Toss, transfer to parchment-lined sheet pan and roast about 10 minutes. Cool slightly, top with fresh basil.","Combine ground cereal with herbs, pepper and garlic. Set up breading station with flour and egg.","Pound chicken breasts to 1/4-inch thick. Dredge in flour, egg, then herbed breading. Spray with canola oil.","Bake at 450Â°F for 10-12 minutes until 165Â°F. Top with mozzarella and return to oven 1 minute. Serve with vegetable mixture."],
     notes: ""
   },
   {
@@ -747,7 +781,7 @@ const INITIAL_RECIPES = [
     category: "Soup",
     nutrition: {carbs: "23g", protein: "4g", fat: "3g", fiber: "2g", sodium: "50mg"},
     ingredients: ["1 butternut squash","1 medium onion, minced","1 small clove garlic, minced","1 carrot, diced","1 stick celery, diced","1 teaspoon olive oil","1/4 cup white wine","2 cups stock (or water)","1 can light coconut milk","1/4 teaspoon salt","1/4 teaspoon pepper","2 branches fresh thyme, or 1/2 teaspoon dry","Toasted pumpkin seeds","Extra virgin olive oil drizzle"],
-    instructions: ["Heat oven to 450°F. Peel, cut, dice and roast butternut squash until tender, about 30 minutes. Reserve.","In a medium saucepan over low heat, sauté onion, garlic, carrots, celery in olive oil. Add wine to deglaze.","Add squash, salt, pepper, thyme, and stock. Cook until soft enough to blend. Blend until smooth.","Add coconut milk and process until well mixed. Garnish with olive oil, pumpkin seeds, and cracked pepper."],
+    instructions: ["Heat oven to 450Â°F. Peel, cut, dice and roast butternut squash until tender, about 30 minutes. Reserve.","In a medium saucepan over low heat, sautÃ© onion, garlic, carrots, celery in olive oil. Add wine to deglaze.","Add squash, salt, pepper, thyme, and stock. Cook until soft enough to blend. Blend until smooth.","Add coconut milk and process until well mixed. Garnish with olive oil, pumpkin seeds, and cracked pepper."],
     notes: ""
   },
   {
@@ -765,7 +799,7 @@ const INITIAL_RECIPES = [
     category: "Soup",
     nutrition: {carbs: "20g", protein: "7g", fat: "2g", fiber: "4g", sodium: "257mg"},
     ingredients: ["1 teaspoon olive oil","1 cup diced yellow onions","1/2 cup diced carrot","1/2 cup diced celery","1 tablespoon minced garlic","4 cups sliced swiss chard","1 quart vegetable stock or water","3/4 cup brown lentils","1 cup diced potatoes","1/4 teaspoon black pepper","1/2 teaspoon sea salt","Pinch red pepper flakes","1 1/2 tablespoons fresh lemon juice","2 teaspoons tamari","1 tablespoon chopped parsley","3/4 cup diced tempeh bacon"],
-    instructions: ["Sauté onion, carrot, celery and garlic in oil over medium heat until translucent, about 2-3 minutes.","Add chard, sauté five more minutes. Add water or stock, lentils & potatoes, salt, pepper, red pepper flakes. Simmer until cooked through.","Finish with lemon juice & tamari. Serve with a sprinkle of parsley. Can finish with 1 tablespoon broiled tempeh bacon per serving."],
+    instructions: ["SautÃ© onion, carrot, celery and garlic in oil over medium heat until translucent, about 2-3 minutes.","Add chard, sautÃ© five more minutes. Add water or stock, lentils & potatoes, salt, pepper, red pepper flakes. Simmer until cooked through.","Finish with lemon juice & tamari. Serve with a sprinkle of parsley. Can finish with 1 tablespoon broiled tempeh bacon per serving."],
     notes: "Tempeh Bacon: marinate 3/4 cup tempeh cubes in 2 tablespoons tamari, 1 teaspoon brown sugar, 1/2 teaspoon paprika, dash liquid smoke."
   },
   {
@@ -792,7 +826,7 @@ const INITIAL_RECIPES = [
     category: "Dessert",
     nutrition: {carbs: "21g", protein: "5g", fat: "3g", fiber: "2g", sodium: "88mg"},
     ingredients: ["15 ounces canned chickpeas, drained","3 tablespoons cocoa powder","3 tablespoons maple syrup","1/3 cup chopped, toasted hazelnuts","2 tablespoons water","1 teaspoon vanilla extract","Apple slices","Pear slices","5 pita breads","2 tablespoons cinnamon sugar"],
-    instructions: ["Combine hummus ingredients in food processor and blend. Taste for seasoning.","Heat oven to 350°F. Cut pitas into wedges. Sprinkle with cinnamon sugar and bake until lightly browned and crispy."],
+    instructions: ["Combine hummus ingredients in food processor and blend. Taste for seasoning.","Heat oven to 350Â°F. Cut pitas into wedges. Sprinkle with cinnamon sugar and bake until lightly browned and crispy."],
     notes: "Serve with pita bread toasted with cinnamon sugar, or apple, or pear slices."
   },
   {
@@ -802,7 +836,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "7g", protein: "25g", fat: "10g", fiber: "trace", sodium: "112mg"},
     ingredients: ["1 tablespoon packed brown sugar","1 tablespoon fresh lime juice","1 clove garlic, minced","1 tablespoon chili powder","16 ounces beef tenderloin, cut into 4 equal portions","1 teaspoon oil (optional)"],
     instructions: ["Preheat grill or broiler.","In a small bowl, combine brown sugar, lime juice, garlic, and chili powder. Mix to a smooth paste.","Spread 1 teaspoon paste on each side of beef tenderloin fillet. Grill or broil to desired doneness, about 3-5 minutes on each side."],
-    notes: "The adobo sauce can be stored in the refrigerator for up to 2 weeks. It also works on chicken and fish. Contains no salt — adjust to taste."
+    notes: "The adobo sauce can be stored in the refrigerator for up to 2 weeks. It also works on chicken and fish. Contains no salt â adjust to taste."
   },
   {
     id: 20, name: "Apple Chia Seed Pudding", source: "Canyon Ranch",
@@ -810,7 +844,7 @@ const INITIAL_RECIPES = [
     category: "Breakfast",
     nutrition: {carbs: "14g", protein: "3g", fat: "4g", fiber: "4g", sodium: "21mg"},
     ingredients: ["1 cup almond milk, plain","1/4 cup apple juice, organic","1 tsp vanilla extract","1/2 tsp ground cinnamon","1/3 cup chia seeds"],
-    instructions: ["Whisk together almond milk, apple juice, vanilla, and cinnamon until smooth.","Add in chia seeds and whisk together (seeds will settle to bottom — keep whisking every few minutes until they start to expand).","Place in the refrigerator overnight.","Small dice apple to garnish."],
+    instructions: ["Whisk together almond milk, apple juice, vanilla, and cinnamon until smooth.","Add in chia seeds and whisk together (seeds will settle to bottom â keep whisking every few minutes until they start to expand).","Place in the refrigerator overnight.","Small dice apple to garnish."],
     notes: "Use whatever kind of milk or juice you have on hand. You can even use brewed tea or cold brew coffee. Keeps in the refrigerator for up to 4 days."
   },
   {
@@ -828,7 +862,7 @@ const INITIAL_RECIPES = [
     category: "Side Dish",
     nutrition: {carbs: "13g", protein: "5g", fat: "5g", fiber: "1g", sodium: "108mg"},
     ingredients: ["3 tablespoons finely minced onion","1 tablespoon unsalted butter","3 tablespoons soft corn, cut from cob or frozen kernels","1 1/4 cup 2% milk","1/4 cup polenta","1/4 teaspoon sea salt","Pinch freshly ground black pepper","2 tablespoons grated Parmesan cheese"],
-    instructions: ["Sauté onion in butter over medium heat until translucent.","Add corn and sauté briefly, about 30 seconds.","Add milk and bring to a boil.","Whisk in polenta, salt and pepper. Cook until thickened, about 3 minutes.","Add cheese and stir until melted. Serve 1/3 cup."],
+    instructions: ["SautÃ© onion in butter over medium heat until translucent.","Add corn and sautÃ© briefly, about 30 seconds.","Add milk and bring to a boil.","Whisk in polenta, salt and pepper. Cook until thickened, about 3 minutes.","Add cheese and stir until melted. Serve 1/3 cup."],
     notes: "For a creamier consistency, add more milk 1/4 cup at a time."
   },
   {
@@ -837,7 +871,7 @@ const INITIAL_RECIPES = [
     category: "Seafood",
     nutrition: {carbs: "50g", protein: "33g", fat: "8g", fiber: "6g", sodium: "714mg"},
     ingredients: ["1/4 cup white or yellow miso","1/3 cup rice wine vinegar","2 tablespoons peanut butter","2 tablespoons water","1 tablespoon honey","Pinch chili flakes","4 egg wontons or egg roll wrappers","3 cups shredded napa cabbage","1 cup sliced red onion","1 cup thinly sliced carrots","1 cup broccoli florets","16 cooked shrimp, 16/20 size"],
-    instructions: ["Combine all dressing ingredients in a blender and puree until smooth. Set aside.","Preheat oven to 400°. Cut wontons in half to form triangles. Place on oiled baking sheet.","Bake wontons 8-10 minutes until golden brown.","Combine cabbage, red onion, carrots and broccoli. Toss with dressing.","Divide into 4 servings and top with 2 baked wontons and 4 shrimp."],
+    instructions: ["Combine all dressing ingredients in a blender and puree until smooth. Set aside.","Preheat oven to 400Â°. Cut wontons in half to form triangles. Place on oiled baking sheet.","Bake wontons 8-10 minutes until golden brown.","Combine cabbage, red onion, carrots and broccoli. Toss with dressing.","Divide into 4 servings and top with 2 baked wontons and 4 shrimp."],
     notes: ""
   },
   {
@@ -846,7 +880,7 @@ const INITIAL_RECIPES = [
     category: "Breakfast",
     nutrition: {carbs: "17g", protein: "6g", fat: "9g", fiber: "4g", sodium: "141mg"},
     ingredients: ["250 gm (1 cup) sourdough starter","50 gm (1/4 cup) olive oil","50 gm (1/4 cup) coconut sugar","1 tablespoon vanilla extract","1 teaspoon cinnamon","360 gm (2 1/2 cups) rolled oats","215 gm mixed nuts of choice","100 gm sunflower seeds","80 gm chia seeds","50 gm hemp seeds","1 teaspoon salt"],
-    instructions: ["Heat oven to 275°F.","Combine all ingredients well.","Spread on parchment-lined sheet pans in thin layers.","Toast 40 minutes, stirring every 10 minutes, until crispy and browned.","Leave granola to cool in oven to remove lingering moisture."],
+    instructions: ["Heat oven to 275Â°F.","Combine all ingredients well.","Spread on parchment-lined sheet pans in thin layers.","Toast 40 minutes, stirring every 10 minutes, until crispy and browned.","Leave granola to cool in oven to remove lingering moisture."],
     notes: ""
   },
   {
@@ -855,7 +889,7 @@ const INITIAL_RECIPES = [
     category: "Beef",
     nutrition: {carbs: "17g", protein: "38g", fat: "11g", fiber: "5g", sodium: "200mg"},
     ingredients: ["40 ounces steak","1/4 cup chopped Italian parsley","1/4 cup extra virgin olive oil","2 tablespoons water","2 tablespoons minced shallots","2 tablespoons minced garlic","1 teaspoon dried oregano","1 tablespoon red wine vinegar","1/2 teaspoon sea salt","1 cup sliced shallots (for pickling)","2/3 cup distilled white vinegar","1/3 cup water","1 tablespoon sugar","1 teaspoon salt","1 teaspoon black peppercorns","1 tablespoon mustard seeds","3 bunches blanched broccolini","1 teaspoon olive oil"],
-    instructions: ["Pan roast, broil, or grill steak to desired temperature. Let beef rest.","Combine chimichurri ingredients in a bowl or blender.","Heat oven to 400°F. Roast broccolini with olive oil, salt and pepper, 5-10 minutes.","For pickled shallots: heat all pickling ingredients except shallots to boil, pour over shallots, steep 5 minutes. Keeps 6 weeks refrigerated."],
+    instructions: ["Pan roast, broil, or grill steak to desired temperature. Let beef rest.","Combine chimichurri ingredients in a bowl or blender.","Heat oven to 400Â°F. Roast broccolini with olive oil, salt and pepper, 5-10 minutes.","For pickled shallots: heat all pickling ingredients except shallots to boil, pour over shallots, steep 5 minutes. Keeps 6 weeks refrigerated."],
     notes: ""
   },
   {
@@ -864,7 +898,7 @@ const INITIAL_RECIPES = [
     category: "Bread/Baking",
     nutrition: {carbs: "21g", protein: "3g", fat: "3g", fiber: "2g", sodium: "226mg"},
     ingredients: ["200g whole wheat flour","120g high extraction flour","80g high gluten/bread flour","100g starter","292g warm water","10g salt"],
-    instructions: ["Combine warm water & starter; starter should float if ready.","Add flours & bring dough together, 4-5 minutes of gentle turning. Add salt, mix until just incorporated. Rest 30 minutes, then fold dough (4-5 folds). Repeat folding 2-3 more times at 15-30 minute intervals. Rest 1 hour then shape. Cover and refrigerate overnight.","Next day, let bread come to room temp. Heat Dutch oven to 500°F. Bake covered 20 minutes, then uncover and bake another 15-20 minutes."],
+    instructions: ["Combine warm water & starter; starter should float if ready.","Add flours & bring dough together, 4-5 minutes of gentle turning. Add salt, mix until just incorporated. Rest 30 minutes, then fold dough (4-5 folds). Repeat folding 2-3 more times at 15-30 minute intervals. Rest 1 hour then shape. Cover and refrigerate overnight.","Next day, let bread come to room temp. Heat Dutch oven to 500Â°F. Bake covered 20 minutes, then uncover and bake another 15-20 minutes."],
     notes: "A classic no-knead sourdough bread. Start it the day before."
   },
   {
@@ -882,7 +916,7 @@ const INITIAL_RECIPES = [
     category: "Bread/Baking",
     nutrition: {carbs: "5g", protein: "1g", fat: "1g", fiber: "1g", sodium: "45mg"},
     ingredients: ["1/2 cup (70g) einkorn flour (or all-purpose)","1/2 cup (70g) high-extraction flour (or whole wheat)","200g sourdough starter","4 tablespoons (55g) melted butter (or 3T olive oil for vegan)","1 teaspoon (5g) salt"],
-    instructions: ["Preheat oven to 400°F.","Combine all ingredients and knead to a smooth dough.","Divide into 4 balls. Rest 10-15 minutes covered. Roll out very thin between parchment. Prick with fork, cut into triangles.","Bake 10-12 minutes until nicely browned."],
+    instructions: ["Preheat oven to 400Â°F.","Combine all ingredients and knead to a smooth dough.","Divide into 4 balls. Rest 10-15 minutes covered. Roll out very thin between parchment. Prick with fork, cut into triangles.","Bake 10-12 minutes until nicely browned."],
     notes: ""
   },
   {
@@ -891,7 +925,7 @@ const INITIAL_RECIPES = [
     category: "Dessert",
     nutrition: {carbs: "17g", protein: "2g", fat: "6g", fiber: "1g", sodium: "43mg"},
     ingredients: ["185 gm unsalted butter, browned & cooled","200 gm sugar","200 gm brown sugar","3 egg yolks","5 gm vanilla extract","240 gm sourdough starter","380 gm all-purpose flour","4 gm baking powder","3 gm baking soda","2 gm sea salt","500 gm chocolate chips"],
-    instructions: ["Heat oven to 375°F.","Brown the butter: melt and boil until golden and toasty. Cool to 185g.","Mix flour, baking soda, baking powder.","Whisk melted butter, sugars, vanilla. Whisk in eggs, then starter. Stir in dry mixture briskly for 45 seconds. Add chips. Chill dough 1-2 hours if possible.","Scoop teaspoon-size rounds onto parchment-lined sheets, 1 inch apart. Bake 8-12 minutes until just firm."],
+    instructions: ["Heat oven to 375Â°F.","Brown the butter: melt and boil until golden and toasty. Cool to 185g.","Mix flour, baking soda, baking powder.","Whisk melted butter, sugars, vanilla. Whisk in eggs, then starter. Stir in dry mixture briskly for 45 seconds. Add chips. Chill dough 1-2 hours if possible.","Scoop teaspoon-size rounds onto parchment-lined sheets, 1 inch apart. Bake 8-12 minutes until just firm."],
     notes: ""
   },
   {
@@ -900,8 +934,8 @@ const INITIAL_RECIPES = [
     category: "Bread/Baking",
     nutrition: {carbs: "5g", protein: "2g", fat: "1g", fiber: "1g", sodium: "90mg"},
     ingredients: ["375 gm warm water","100 gm active sourdough starter","10 gm salt","500 gm flour (blend or all-purpose or bread flour)"],
-    instructions: ["Mix starter, salt, and water. Add flour and mix until incorporated. Rest 30 minutes.","Stretch and fold: pull dough up and into center, turning vessel. Repeat 8-10 times. Rest 30 minutes. Repeat 3-4 times total.","Bulk ferment at room temperature 4-18 hours until doubled.","Divide into 4 portions, shape into balls, refrigerate 6 hours to 3 days.","Pull dough out before baking. Set oven to 550°F. Shape into 10-inch round. Bake on parchment until blistered, about 5-6 minutes."],
-    notes: "Top with classic Margherita (tomato sauce, mozzarella, parmesan) or kale and crème fraîche."
+    instructions: ["Mix starter, salt, and water. Add flour and mix until incorporated. Rest 30 minutes.","Stretch and fold: pull dough up and into center, turning vessel. Repeat 8-10 times. Rest 30 minutes. Repeat 3-4 times total.","Bulk ferment at room temperature 4-18 hours until doubled.","Divide into 4 portions, shape into balls, refrigerate 6 hours to 3 days.","Pull dough out before baking. Set oven to 550Â°F. Shape into 10-inch round. Bake on parchment until blistered, about 5-6 minutes."],
+    notes: "Top with classic Margherita (tomato sauce, mozzarella, parmesan) or kale and crÃ¨me fraÃ®che."
   },
   {
     id: 31, name: "Sprouted Multigrain Bread", source: "Canyon Ranch",
@@ -909,7 +943,7 @@ const INITIAL_RECIPES = [
     category: "Bread/Baking",
     nutrition: {carbs: "20g", protein: "4g", fat: "1g", fiber: "2g", sodium: "191mg"},
     ingredients: ["1 cup + 2 tablespoons warm water","1 tablespoon active dry yeast","1/4 cup honey","2 tablespoons molasses","3/4 cup cooked multigrain cereal","2 1/4 cups bread flour","2 cups whole wheat flour","1/4 cup vital wheat gluten flour","1 tablespoon salt","3/4 cup sprouted grains (quinoa, amaranth, barley, spelt, millet)"],
-    instructions: ["Preheat oven to 375°F when ready to bake.","Stir yeast, honey & molasses into warm water. Let sit until foamy, about 5 minutes.","Add cereal & dry ingredients. Knead until smooth and elastic, about 5 minutes. Add sprouted grains and knead until combined.","Let rise 1-2 hours until doubled.","Divide in half, shape into loaves for greased bread pans.","Rise again about 30 minutes until 2 inches above pan rim. Bake 40-45 minutes until 180-200°F. Cool 20 minutes before slicing."],
+    instructions: ["Preheat oven to 375Â°F when ready to bake.","Stir yeast, honey & molasses into warm water. Let sit until foamy, about 5 minutes.","Add cereal & dry ingredients. Knead until smooth and elastic, about 5 minutes. Add sprouted grains and knead until combined.","Let rise 1-2 hours until doubled.","Divide in half, shape into loaves for greased bread pans.","Rise again about 30 minutes until 2 inches above pan rim. Bake 40-45 minutes until 180-200Â°F. Cool 20 minutes before slicing."],
     notes: ""
   },
   {
@@ -1044,7 +1078,7 @@ const INITIAL_RECIPES = [
     category: "Seafood",
     nutrition: {carbs: "47g", protein: "21g", fat: "17g", fiber: "4g", sodium: "536mg"},
     ingredients: ["8 oz soba noodles","8 oz red cabbage, shredded","5 oz cucumber, julienned","5 oz cherry tomatoes","2 Tbsp canola oil","1 oz ginger, minced","8 oz shrimp","5 oz red peppers, julienned","1 oz light coconut milk","2.5 oz scallions, chopped","7 oz tofu, diced","1 tsp salt","3 oz peanuts, roasted","1.5 oz Thai basil, chopped","1.5 oz mint, chopped"],
-    instructions: ["Cook soba noodles according to package directions. Drain and rinse under cold water.","Toss noodles with shredded red cabbage, julienned cucumber, and cherry tomatoes.","Heat canola oil in a pan over medium-high heat. Sauté ginger briefly, then add shrimp and red peppers. Cook until shrimp are pink and cooked through.","Add coconut milk and scallions, toss to combine.","Add tofu, season with salt, and gently mix.","Serve noodle mixture topped with shrimp, garnished with roasted peanuts, Thai basil, and mint."],
+    instructions: ["Cook soba noodles according to package directions. Drain and rinse under cold water.","Toss noodles with shredded red cabbage, julienned cucumber, and cherry tomatoes.","Heat canola oil in a pan over medium-high heat. SautÃ© ginger briefly, then add shrimp and red peppers. Cook until shrimp are pink and cooked through.","Add coconut milk and scallions, toss to combine.","Add tofu, season with salt, and gently mix.","Serve noodle mixture topped with shrimp, garnished with roasted peanuts, Thai basil, and mint."],
     notes: ""
   },
   {
@@ -1053,8 +1087,8 @@ const INITIAL_RECIPES = [
     category: "Vegetable",
     nutrition: {carbs: "24g", protein: "2g", fat: "7g", fiber: "4g", sodium: "151mg"},
     ingredients: ["9 oz sweet potato","7 oz yellow onion, diced","1.5 Tbsp olive oil","1/4 tsp salt","1/4 tsp pepper","5 oz roasted Brussels sprouts","1 Tbsp toasted slivered almonds","1 tsp balsamic reduction","6 oz Brussels sprouts (for roasting)","1 tsp olive oil (for roasting)","1 Tbsp slivered almonds (for toasting)"],
-    instructions: ["Shred the sweet potato and onion with a box grater.","Add olive oil to a pan over medium-high heat and cook sweet potato and onion until sweet potatoes are tender. Season with salt and pepper.","Add in roasted Brussels sprouts and cook until warmed through.","Split hash between 4 plates, then garnish each plate with toasted almonds and a drizzle of balsamic reduction.","To Make Roasted Brussels Sprouts: Preheat oven to 425°F. Trim the ends of the Brussels sprouts, cut in half. Place onto a sheet pan, drizzle with olive oil, season with salt and pepper. Roast for 20-30 minutes until tender and golden brown.","To Make Toasted Slivered Almonds: Preheat oven to 300°F. Place slivered almonds onto a sheet pan and toast until golden brown (about 10 minutes)."],
-    notes: "Balsamic reduction is made by simmering balsamic vinegar until reduced by 75% — thick and syrupy. Cook at a bare simmer to avoid burning."
+    instructions: ["Shred the sweet potato and onion with a box grater.","Add olive oil to a pan over medium-high heat and cook sweet potato and onion until sweet potatoes are tender. Season with salt and pepper.","Add in roasted Brussels sprouts and cook until warmed through.","Split hash between 4 plates, then garnish each plate with toasted almonds and a drizzle of balsamic reduction.","To Make Roasted Brussels Sprouts: Preheat oven to 425Â°F. Trim the ends of the Brussels sprouts, cut in half. Place onto a sheet pan, drizzle with olive oil, season with salt and pepper. Roast for 20-30 minutes until tender and golden brown.","To Make Toasted Slivered Almonds: Preheat oven to 300Â°F. Place slivered almonds onto a sheet pan and toast until golden brown (about 10 minutes)."],
+    notes: "Balsamic reduction is made by simmering balsamic vinegar until reduced by 75% â thick and syrupy. Cook at a bare simmer to avoid burning."
   },
   {
     id: 48, name: "Chicken Meatballs with Soy Glaze & Pineapple", source: "Canyon Ranch",
@@ -1062,8 +1096,8 @@ const INITIAL_RECIPES = [
     category: "Poultry",
     nutrition: {carbs: "12g", protein: "8g", fat: "6g", fiber: "1g", sodium: "295mg"},
     ingredients: ["8 oz chicken thigh, ground","5 oz onion, minced","1 oz yellow bell pepper, diced","1 oz red bell pepper, diced","1 tsp garlic, minced","1 tsp sage, dry","1/2 tsp apple cider vinegar","1/2 tsp salt","1/4 tsp pepper","1/4 tsp ground ginger","4 Tbsp panko bread crumbs","7 Tbsp soy glaze","8 oz pineapple, diced","1 oz scallions, chopped"],
-    instructions: ["Preheat the oven to 400°F.","Mix together ground chicken, onion, bell peppers, garlic, sage, apple cider vinegar, salt, pepper, ground ginger, and panko bread crumbs.","Shape into 21 meatballs (about 1-inch) and place in a baking dish large enough to hold them all.","Pour soy glaze over meatballs and bake until cooked through (internal temperature of 165°F, about 18-20 minutes).","Remove from oven and add diced pineapple and chopped scallions."],
-    notes: "To make soy glaze: Combine 2 Tbsp canola oil, 2 Tbsp tamari, 1.5 Tbsp honey, 1 Tbsp rice vinegar, 1/2 tsp garlic powder, and 1/4 tsp ground ginger in a blender and purée until smooth."
+    instructions: ["Preheat the oven to 400Â°F.","Mix together ground chicken, onion, bell peppers, garlic, sage, apple cider vinegar, salt, pepper, ground ginger, and panko bread crumbs.","Shape into 21 meatballs (about 1-inch) and place in a baking dish large enough to hold them all.","Pour soy glaze over meatballs and bake until cooked through (internal temperature of 165Â°F, about 18-20 minutes).","Remove from oven and add diced pineapple and chopped scallions."],
+    notes: "To make soy glaze: Combine 2 Tbsp canola oil, 2 Tbsp tamari, 1.5 Tbsp honey, 1 Tbsp rice vinegar, 1/2 tsp garlic powder, and 1/4 tsp ground ginger in a blender and purÃ©e until smooth."
   },
   {
     id: 49, name: "Jerk Chicken", source: "Canyon Ranch",
@@ -1071,7 +1105,7 @@ const INITIAL_RECIPES = [
     category: "Poultry",
     nutrition: {carbs: "3g", protein: "24g", fat: "10g", fiber: "trace", sodium: "148mg"},
     ingredients: ["1/4 cup red onion, diced","1/2 cup scallion, chopped","3 Tbsp garlic, minced","3 Tbsp ginger juice","3 Tbsp fresh orange juice","1 Tbsp low-sodium tamari","2 Tbsp Worcestershire sauce","1 Tbsp brown sugar","1 Tbsp fresh thyme","2 Tbsp ground allspice","1 Tbsp ground cinnamon","1 Tbsp ground nutmeg","3 Tbsp extra virgin olive oil","1/4 cup rum (optional)","2 habanero peppers","1/2 tsp sea salt","4 chicken breasts (4 oz each)"],
-    instructions: ["Place all ingredients, except chicken, in a blender and purée until smooth.","Place chicken breasts in a shallow glass baking dish and pour marinade over the top.","Place in refrigerator and marinate for 20 minutes to 24 hours.","Preheat the oven to 400°F.","Heat a skillet on medium-high and sear chicken for 1 minute per side.","Finish cooking the chicken in the oven for 15-20 minutes or until it reaches an internal temperature of 165°F."],
+    instructions: ["Place all ingredients, except chicken, in a blender and purÃ©e until smooth.","Place chicken breasts in a shallow glass baking dish and pour marinade over the top.","Place in refrigerator and marinate for 20 minutes to 24 hours.","Preheat the oven to 400Â°F.","Heat a skillet on medium-high and sear chicken for 1 minute per side.","Finish cooking the chicken in the oven for 15-20 minutes or until it reaches an internal temperature of 165Â°F."],
     notes: "Marinating overnight gives the best flavor. Adjust habanero to taste for heat level."
   },
   {
@@ -1089,7 +1123,7 @@ const INITIAL_RECIPES = [
     category: "Bread/Baking",
     nutrition: {carbs: "24g", protein: "3g", fat: "3g", fiber: "1g", sodium: "104mg"},
     ingredients: ["4 oz powdered sugar","1 oz butter, unsalted","1 oz low-fat cream cheese","1 egg","1/2 tsp vanilla extract","1/2 cup 2% milk","1/4 tsp baking soda","1/2 Tbsp baking powder","3 oz all-purpose flour","4 oz whole wheat flour","1/2 tsp salt","8 oz blueberries"],
-    instructions: ["Add powdered sugar, butter, and low-fat cream cheese to a stand mixer with paddle attachment and blend until light and fluffy. Scrape down the sides of the bowl.","Turn mixer to low speed and add the egg. Mix until fully incorporated, scrape down the bowl.","Combine milk and vanilla and slowly add to the mixer on low speed. Scrape down the bowl.","Fold in dry ingredients: baking soda, baking powder, flours, and salt. Mix on low speed until combined.","Remove the bowl and add blueberries. Gently mix with a spoon to incorporate.","Scoop 2.5 oz of batter into a lightly sprayed muffin pan.","Bake at 375°F for 12-15 minutes, or until a toothpick placed in the center comes out clean."],
+    instructions: ["Add powdered sugar, butter, and low-fat cream cheese to a stand mixer with paddle attachment and blend until light and fluffy. Scrape down the sides of the bowl.","Turn mixer to low speed and add the egg. Mix until fully incorporated, scrape down the bowl.","Combine milk and vanilla and slowly add to the mixer on low speed. Scrape down the bowl.","Fold in dry ingredients: baking soda, baking powder, flours, and salt. Mix on low speed until combined.","Remove the bowl and add blueberries. Gently mix with a spoon to incorporate.","Scoop 2.5 oz of batter into a lightly sprayed muffin pan.","Bake at 375Â°F for 12-15 minutes, or until a toothpick placed in the center comes out clean."],
     notes: "Requires a stand mixer with paddle attachment."
   },
   {
@@ -1098,7 +1132,7 @@ const INITIAL_RECIPES = [
     category: "Sauce/Dressing",
     nutrition: {carbs: "3g", protein: "trace", fat: "trace", fiber: "trace", sodium: "124mg"},
     ingredients: ["1 cup lime juice","2 oz shallots, sliced","1 Tbsp yellow bell pepper, diced","1 cup water","1 1/2 tsp lime zest","1 Tbsp evaporated cane sugar","1 tsp salt"],
-    instructions: ["Combine all ingredients in a blender and purée.","Allow to sit in the fridge for 15 minutes before straining out solids."],
+    instructions: ["Combine all ingredients in a blender and purÃ©e.","Allow to sit in the fridge for 15 minutes before straining out solids."],
     notes: "Great as a marinade for shrimp or fish ceviche-style dishes."
   },
   {
@@ -1124,9 +1158,9 @@ const INITIAL_RECIPES = [
     time: "15 min", difficulty: "Easy", servings: "4", calories: 45,
     category: "Beverage",
     nutrition: {carbs: "10g", protein: "trace", fat: "trace", fiber: "1g", sodium: "4mg"},
-    ingredients: ["1/3 cup prickly pear purée","1/4 cup lemon juice","1/2 cup orange juice","1 1/4 cup sparkling water","4 orange wheels for garnish"],
-    instructions: ["Place prickly pear purée, lemon juice, and orange juice into a shaker. Shake until combined and pour equal portions into 4 glasses.","Fill each glass with ice, then top with sparkling water.","Garnish each glass with an orange wheel."],
-    notes: "Prickly pear cactus fruit is available commercially as purée, syrup, frozen, or powder if you can't find fresh."
+    ingredients: ["1/3 cup prickly pear purÃ©e","1/4 cup lemon juice","1/2 cup orange juice","1 1/4 cup sparkling water","4 orange wheels for garnish"],
+    instructions: ["Place prickly pear purÃ©e, lemon juice, and orange juice into a shaker. Shake until combined and pour equal portions into 4 glasses.","Fill each glass with ice, then top with sparkling water.","Garnish each glass with an orange wheel."],
+    notes: "Prickly pear cactus fruit is available commercially as purÃ©e, syrup, frozen, or powder if you can't find fresh."
   },
   {
     id: 56, name: "Lemon Herb Roasted Salmon", source: "Canyon Ranch",
@@ -1134,7 +1168,7 @@ const INITIAL_RECIPES = [
     category: "Seafood",
     nutrition: {carbs: "trace", protein: "11g", fat: "3g", fiber: "trace", sodium: "43mg"},
     ingredients: ["1 pound salmon, skin-on","1/2 tsp olive oil","1 tsp chives, fresh","1 tsp parsley, fresh","1/2 tsp tarragon, fresh","1/4 tsp salt","pinch black pepper","1/2 lemon"],
-    instructions: ["Wash herbs and dry with a towel. Chop and set aside.","Place salmon on a sheet pan lined with parchment paper and lightly spray with oil.","Season salmon with olive oil, herbs, salt, and pepper.","Slice lemon into rings and place on top of salmon in a line.","Roast salmon in a 350°F oven for about 25 minutes, or until done."],
+    instructions: ["Wash herbs and dry with a towel. Chop and set aside.","Place salmon on a sheet pan lined with parchment paper and lightly spray with oil.","Season salmon with olive oil, herbs, salt, and pepper.","Slice lemon into rings and place on top of salmon in a line.","Roast salmon in a 350Â°F oven for about 25 minutes, or until done."],
     notes: "Salmon is rich in omega-3 fatty acids, which help reduce inflammation and lower blood pressure."
   },
   {
@@ -1153,7 +1187,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "29g", protein: "11g", fat: "8g", fiber: "9g", sodium: "259mg"},
     ingredients: ["1/3 cup Dijon mustard","1/2 cup sherry vinegar","1/4 cup red wine vinegar","1/4 cup water","1/4 cup diced shallots","1/4 cup honey","1/4 cup canola oil","2 cups organic spinach","1 cup fresh arugula","1 cup cooked brown tepary beans","1 cup diced roasted butternut squash","1/2 cup chopped red endive","1/4 cup cotija cheese","1 tsp fresh lemon zest","2 Tbsp roasted pumpkin seeds","2 Tbsp roasted sunflower seeds","1 Tbsp chia seeds","1 Tbsp hemp seeds"],
     instructions: ["Combine all vinaigrette ingredients in a blender except canola oil and blend until well mixed.","Slowly drizzle in canola oil.","Toss spinach, arugula, tepary beans, and roasted butternut squash together with 1/3 cup dressing, cotija cheese, and lemon zest.","Coarsely chop pumpkin and sunflower seeds. Mix with chia and hemp seeds.","Evenly divide salad into bowls. Top each serving with 1 tablespoon of super seed mixture."],
-    notes: "The sherry shallot vinaigrette makes more than needed — save extra for other salads."
+    notes: "The sherry shallot vinaigrette makes more than needed â save extra for other salads."
   },
   {
     id: 59, name: "Roasted Tomato Vinaigrette", source: "Canyon Ranch",
@@ -1180,7 +1214,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "7g", protein: "1g", fat: "3g", fiber: "1g", sodium: "212mg"},
     ingredients: ["8 medium ripe Roma tomatoes","1/2 tsp sea salt","2 tsp minced garlic","1/2 cup chopped fresh basil leaves","1/2 cup chopped fresh parsley","2 Tbsp extra virgin olive oil","1/4 tsp freshly ground black pepper","1/4 tsp crushed red pepper"],
     instructions: ["Bring a large pot of water to a boil. Cut a shallow X in the tops of the tomatoes. Drop into boiling water for 2 minutes, then transfer to a bowl of ice water. Core and peel tomatoes.","Chop the peeled tomatoes (about 4 cups). Sprinkle with 1/2 tsp salt and mix well. Place in a colander and allow to drain.","Combine garlic, basil, parsley, olive oil, black pepper, and red pepper in a medium saucepan. Add drained tomatoes and heat until warm.","Serve over pasta."],
-    notes: "A fresh, no-cook-style Italian sauce — vegan and vegetarian friendly."
+    notes: "A fresh, no-cook-style Italian sauce â vegan and vegetarian friendly."
   },
   {
     id: 62, name: "Apple Cider Vinaigrette", source: "Canyon Ranch",
@@ -1189,7 +1223,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "7g", protein: "trace", fat: "0g", fiber: "trace", sodium: "112mg"},
     ingredients: ["1/4 cup cider vinegar","2 cups apple cider","1/4 cup honey","2 cinnamon sticks","1 tsp sea salt"],
     instructions: ["Combine all ingredients in a jar with a tight-fitting lid.","Refrigerate overnight.","Remove cinnamon sticks before serving."],
-    notes: "Fat-free dressing — the apple cider and honey provide all the body and sweetness."
+    notes: "Fat-free dressing â the apple cider and honey provide all the body and sweetness."
   },
   {
     id: 63, name: "Baja Crispy Chicken Tacos", source: "Canyon Ranch",
@@ -1197,7 +1231,7 @@ const INITIAL_RECIPES = [
     category: "Poultry",
     nutrition: {carbs: "25g", protein: "27g", fat: "15g", fiber: "3g", sodium: "286mg"},
     ingredients: ["4 Tbsp low-fat sour cream","1 Tbsp fresh lime juice","1 Tbsp fresh orange juice","1/2 tsp chili powder","1/8 tsp sea salt","1/4 cup diced avocado","1 cup shredded green cabbage","1/4 cup fresh orange juice (for marinade)","1/4 cup fresh lime juice (for marinade)","1/4 cup tequila (optional)","2 Tbsp olive oil","1 Tbsp chili powder (for marinade)","1 tsp sea salt (for marinade)","4 skinless chicken breast halves, boned and defatted","8 crispy corn taco shells","8 Tbsp grated cheddar cheese","8 Tbsp Pico de Gallo salsa"],
-    instructions: ["In a blender, combine sour cream, 1 Tbsp lime juice, 1 Tbsp orange juice, 1/2 tsp chili powder, 1/8 tsp salt, and avocado. Purée until smooth. Pour over shredded cabbage and toss well. Set aside.","Combine marinade ingredients (1/4 cup OJ, 1/4 cup lime juice, tequila, olive oil, 1 Tbsp chili powder, 1 tsp salt). Place chicken in a shallow glass baking pan, add marinade. Cover and refrigerate 2 hours.","Preheat grill or broiler. Remove chicken from marinade and grill or broil 15-20 minutes until internal temp reaches 165°F. Discard leftover marinade.","Allow chicken to cool slightly, then chop into small pieces.","Divide chicken among 8 taco shells. Top each with 1 Tbsp shredded cheese and 1 Tbsp Pico de Gallo. Serve 2 tacos with 1 cup cabbage salad."],
+    instructions: ["In a blender, combine sour cream, 1 Tbsp lime juice, 1 Tbsp orange juice, 1/2 tsp chili powder, 1/8 tsp salt, and avocado. PurÃ©e until smooth. Pour over shredded cabbage and toss well. Set aside.","Combine marinade ingredients (1/4 cup OJ, 1/4 cup lime juice, tequila, olive oil, 1 Tbsp chili powder, 1 tsp salt). Place chicken in a shallow glass baking pan, add marinade. Cover and refrigerate 2 hours.","Preheat grill or broiler. Remove chicken from marinade and grill or broil 15-20 minutes until internal temp reaches 165Â°F. Discard leftover marinade.","Allow chicken to cool slightly, then chop into small pieces.","Divide chicken among 8 taco shells. Top each with 1 Tbsp shredded cheese and 1 Tbsp Pico de Gallo. Serve 2 tacos with 1 cup cabbage salad."],
     notes: "Includes a creamy avocado cabbage slaw. Marinating for the full 2 hours gives the best flavor."
   },
   {
@@ -1207,7 +1241,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "26g", protein: "5g", fat: "4g", fiber: "5g", sodium: "147mg"},
     ingredients: ["3/4 cup whole-wheat flour","3 Tbsp whole wheat pastry flour","1 1/2 tsp baking soda","1/4 tsp salt","2 cups Baker's Bran","1 1/2 tsp ground cinnamon","1 tsp ground nutmeg","1 tsp ground allspice","2 Tbsp canola oil","2 Tbsp blackstrap molasses","2 Tbsp pure honey","1 large egg, lightly beaten","1 1/3 cups buttermilk","1/3 cup raisins"],
     instructions: ["Preheat oven to 375\u00B0F. Lightly coat 10 cups of a 12-muffin pan with canola oil spray.","In a medium bowl, combine all dry ingredients.","In a small bowl, combine oil, molasses, honey, egg, and buttermilk and mix well.","Add liquid ingredients to dry ingredients and stir just until moistened. Do not over mix.","Stir in raisins and fill prepared muffin pans \u00BE full.","Bake 15-20 minutes, or until a toothpick inserted in center comes out clean."],
-    notes: "High in fiber — 5g per muffin."
+    notes: "High in fiber â 5g per muffin."
   },
   {
     id: 65, name: "Carpaccio of Roasted Beets", source: "Canyon Ranch",
@@ -1234,7 +1268,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "18g", protein: "29g", fat: "7g", fiber: "3g", sodium: "500mg"},
     ingredients: ["4 corn tortillas, julienned","1 cup all-purpose flour","1 Tbsp dry oregano","2 tsp sea salt","1/4 tsp cayenne pepper","1 Tbsp toasted and ground cumin seed","2 large eggs, beaten","1 lb sea bass fillets, cut into 4 oz portions","1 tsp extra virgin olive oil","12 oz tomatillos, paper removed","1/2 jalape\u00F1o pepper, minced","1/4 tsp dried oregano","2 tsp chopped fresh cilantro","1 tsp minced fresh garlic","1/4 tsp sea salt","1 tsp fresh lime juice"],
     instructions: ["Preheat oven to 400\u00B0F. Lightly coat a baking sheet with olive oil.","Arrange whole tomatillos on baking sheet and roast for 10 minutes until golden brown. Place in blender with jalape\u00F1o, oregano, cilantro, garlic, 1/4 tsp salt, and lime juice. Pur\u00E9e until smooth.","Spread tortilla strips on baking sheet and bake 15 minutes until golden and crisp. Cool and crush into small pieces.","In a shallow bowl, combine flour, oregano, 2 tsp salt, cayenne, and cumin.","Dip fish in flour mixture, then in egg, then dredge in tortilla crumbs. Place on a lightly oiled baking pan. Spray lightly with olive oil.","Bake 10 minutes until crust is golden and fish flakes easily. Serve with 1/4 cup tomatillo sauce."],
-    notes: "Same technique as the chicken version — works beautifully with sea bass. Gluten-free friendly."
+    notes: "Same technique as the chicken version â works beautifully with sea bass. Gluten-free friendly."
   },
   {
     id: 68, name: "White Bean Soup", source: "Canyon Ranch",
@@ -1243,7 +1277,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "23g", protein: "18g", fat: "3g", fiber: "6g", sodium: "311mg"},
     ingredients: ["1/3 cup diced yellow onion","1/4 cup peeled and diced carrots","1/4 cup diced celery","1 tsp minced fresh garlic","1 Tbsp extra-virgin olive oil","1 cup small white beans, soaked overnight and rinsed","1 1/2 qt vegetable stock","dash liquid smoke","1/4 tsp dry basil","pinch dry oregano","pinch dry thyme","3/4 tsp sea salt","pinch freshly ground black pepper","1/2 tsp Worcestershire sauce","1 1/2 tsp chopped fresh parsley","1/2 tsp fresh lemon juice"],
     instructions: ["In a large saut\u00E9 pan, saut\u00E9 onions, carrots, celery, and garlic in olive oil until onions begin to turn translucent.","Add beans and stir. Add stock, liquid smoke, basil, oregano, and thyme. Bring to a boil, reduce heat to low, and simmer 45 minutes to 1 hour until beans are soft and beginning to fall apart to thicken the broth.","Once soup begins to thicken, add salt, pepper, Worcestershire sauce, parsley, and lemon juice. Simmer briefly."],
-    notes: "Soak beans overnight before cooking. Vegetarian — the liquid smoke adds a subtle smoky depth."
+    notes: "Soak beans overnight before cooking. Vegetarian â the liquid smoke adds a subtle smoky depth."
   },
   {
     id: 69, name: "Granola", source: "Canyon Ranch",
@@ -1261,7 +1295,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "10g", protein: "1g", fat: "2g", fiber: "trace", sodium: "216mg"},
     ingredients: ["2 Tbsp canola oil","1 Tbsp minced fresh garlic","pinch chili flakes","pinch five spice powder","1/3 cup brown sugar","1 tsp sea salt","2 Tbsp low-sodium tamari sauce","5 Tbsp white vinegar","3 Tbsp water","1/3 cup canned black beans"],
     instructions: ["In a medium saut\u00E9 pan, combine oil, garlic, chili flakes, and five-spice powder. Saut\u00E9 over medium heat until garlic turns golden brown.","Add brown sugar and cook over low heat until sugar caramelizes.","Add remaining ingredients and cook until thick, about 20-30 minutes over low heat.","Cool. Transfer to blender and pur\u00E9e until smooth."],
-    notes: "Homemade hoisin — great for stir-fries, glazes, and dipping sauces."
+    notes: "Homemade hoisin â great for stir-fries, glazes, and dipping sauces."
   },
   {
     id: 71, name: "Honey Lemon Tarragon Dressing", source: "Canyon Ranch",
@@ -1297,7 +1331,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "18g", protein: "trace", fat: "trace", fiber: "0g", sodium: "trace"},
     ingredients: ["1/2 cup cane sugar","3/4 cup fresh lemon juice","7 cups water"],
     instructions: ["Combine sugar and lemon juice in a 2-quart pitcher or jar.","Add water and mix well.","Add ice and serve."],
-    notes: "Simple and refreshing — just three ingredients."
+    notes: "Simple and refreshing â just three ingredients."
   },
   {
     id: 75, name: "Manchego Chopped Salad with Shrimp", source: "Canyon Ranch",
@@ -1306,7 +1340,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "28g", protein: "28g", fat: "15g", fiber: "7g", sodium: "707mg"},
     ingredients: ["1 cup canned garbanzo beans, drained","1 cup diced red or yellow bell pepper","1 cup diced celery","2 cups diced tomatoes","2 cups peeled and diced cucumber","1/4 cup chopped scallions","1/2 cup sliced green olives","1/2 cup diced artichoke hearts","3/4 lb cooked, diced shrimp","4 Tbsp shaved Manchego cheese","2 Tbsp minced garlic","1/2 cup champagne or white wine vinegar","1/4 cup Dijon mustard","3 Tbsp water","2 Tbsp low-sodium tamari sauce","1/4 tsp freshly ground black pepper","2 Tbsp canola oil","2 Tbsp extra virgin olive oil"],
     instructions: ["Make the French vinaigrette: Put garlic in a strainer and submerge in boiling water for 5 seconds until garlic turns white. Place garlic, vinegar, mustard, water, tamari, and pepper in a blender and blend until smooth. Slowly drizzle in oils while blender is running.","In a large bowl, place all diced vegetables and shrimp. Add 1/2 cup dressing and toss until well combined.","Divide salad among 4 plates. Top each with 1 Tbsp shaved Manchego cheese."],
-    notes: "Includes a French vinaigrette recipe — makes extra dressing that's great on other salads too."
+    notes: "Includes a French vinaigrette recipe â makes extra dressing that's great on other salads too."
   },
   {
     id: 76, name: "Mustard-Crusted Chicken", source: "Canyon Ranch",
@@ -1342,7 +1376,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "25g", protein: "28g", fat: "9g", fiber: "1g", sodium: "524mg"},
     ingredients: ["1 lb shrimp, peeled and deveined","1 tsp canola oil","1/2 tsp sea salt","1/4 tsp freshly ground black pepper","2/3 cup roasted red peppers","1 Tbsp minced shallots","1 tsp minced garlic","2 tsp minced fresh basil","1 tsp chopped fresh rosemary","1 tsp cane sugar","2 Tbsp sherry vinegar","1/4 cup hazelnut oil","1/4 cup diced yellow onions","1 tsp minced garlic (for risotto)","1 tsp extra virgin olive oil","1/2 cup dry orzo pasta","1 cup low-sodium chicken stock","1/2 tsp saffron threads","1/2 tsp paprika","1/4 cup chopped fresh Italian parsley"],
     instructions: ["Make vinaigrette: Place roasted red peppers, shallots, garlic, basil, rosemary, sugar, and sherry vinegar in a blender. Pur\u00E9e until smooth. With machine running, slowly drizzle in hazelnut oil.","Make saffron orzo risotto: Saut\u00E9 onion and garlic in olive oil until translucent. Add orzo and stir to coat. Add chicken stock, bring to a boil. Reduce to a simmer, stir constantly until liquid is absorbed and orzo is tender, 10-15 minutes. Stir in saffron, paprika, parsley, and salt.","In a large saut\u00E9 pan, heat canola oil over medium heat. Add shrimp and saut\u00E9 until just pink. Season with salt and pepper.","Plate: 2 Tbsp vinaigrette on the bottom, top with 1/3 cup orzo risotto and shrimp."],
-    notes: "A composed plate — includes saffron orzo risotto and roasted red pepper vinaigrette."
+    notes: "A composed plate â includes saffron orzo risotto and roasted red pepper vinaigrette."
   },
   {
     id: 80, name: "Shrimp Catalan", source: "Canyon Ranch",
@@ -1369,7 +1403,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "10g", protein: "11g", fat: "4g", fiber: "4g", sodium: "240mg"},
     ingredients: ["8 fresh poblano peppers","1/4 cup goat cheese","1/2 cup shrimp, cooked and diced","2 tsp chopped fresh cilantro","1/4 tsp sea salt","2 tsp chopped pumpkin seeds"],
     instructions: ["Preheat broiler. Arrange peppers on baking sheet and broil until charred on all sides, turning occasionally, about 20 minutes.","Place in a stainless steel bowl and cover tightly with plastic wrap. Let stand 10 minutes. Peel chilies and discard skin.","Pull each pepper apart, keeping it in as large a section as possible. Lay between plastic wrap and pound lightly to flatten.","Place 1 1/2 tsp goat cheese, 1 Tbsp diced shrimp, and 1/4 tsp cilantro on each pepper. Sprinkle with salt. Roll up and top each with 1/4 tsp pumpkin seeds.","Bake 8-10 minutes until heated through and seeds are browned."],
-    notes: "An elegant appetizer — roasted poblanos stuffed with shrimp and goat cheese."
+    notes: "An elegant appetizer â roasted poblanos stuffed with shrimp and goat cheese."
   },
   {
     id: 83, name: "Potato Latkes", source: "Canyon Ranch",
@@ -1387,7 +1421,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "2g", protein: "1g", fat: "4g", fiber: "trace", sodium: "77mg"},
     ingredients: ["1.5 oz garlic","2 Tbsp tamari","1/2 Tbsp Worcestershire sauce","1/2 Tbsp white distilled vinegar","1 Tbsp evaporated cane sugar","1/2 tsp black pepper","1/2 tsp salt","1.5 oz scallions","1.75 lb sour cream","6 oz mayonnaise"],
     instructions: ["Bring a pot of water to a boil and add garlic. Reduce to a simmer and cook about 5 minutes. Drain and cool.","In a blender, blend garlic, tamari, Worcestershire, vinegar, sugar, pepper, and salt until smooth.","Thinly slice the green parts of the scallions and add to blender. Pulse only 2-3 times to keep them chunky.","Place sour cream and mayonnaise in a mixing bowl. Pour in blender contents and whisk by hand until incorporated."],
-    notes: "Blanching the garlic mellows its bite — skip this step if you prefer a stronger garlic kick. Homemade mayo recommended."
+    notes: "Blanching the garlic mellows its bite â skip this step if you prefer a stronger garlic kick. Homemade mayo recommended."
   },
   {
     id: 85, name: "Raspberry Lime Smoothie", source: "Canyon Ranch",
@@ -1423,7 +1457,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "15g", protein: "3g", fat: "3g", fiber: "2g", sodium: "241mg"},
     ingredients: ["3 medium russet potatoes, thinly sliced (about 3 cups)","3/4 cup thinly sliced onions","1 cup 2% milk","1 Tbsp all-purpose flour","1/2 tsp salt","1/4 tsp freshly ground black pepper","1 1/2 tsp melted butter"],
     instructions: ["Preheat oven to 425\u00B0F. Lightly coat a 9-inch square baking dish with canola oil.","Place half of the potatoes in the dish and cover with onions. Top with remaining sliced potatoes.","In a blender, combine milk, flour, salt, pepper, and butter. Blend until well mixed. Evenly pour over the potatoes.","Cover and bake for 45 minutes. Remove cover and bake an additional 15 minutes, or until potatoes reach desired crispness on top."],
-    notes: "A lightened-up comfort food classic — only 90 calories per serving."
+    notes: "A lightened-up comfort food classic â only 90 calories per serving."
   },
   {
     id: 89, name: "Seven Grain Bread", source: "Canyon Ranch",
@@ -1432,7 +1466,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "12g", protein: "6g", fat: "4g", fiber: "2g", sodium: "149mg"},
     ingredients: ["1/2 cup pecans, chopped","3 Tbsp sunflower seeds","2 cups warm water (90-105\u00B0F)","1 1/4 cups whole-wheat flour","1 Tbsp active dry yeast","1 1/2 Tbsp honey","1/4 cup ground flax seeds","2 cups bread flour","2 tsp salt","1/2 cup Arrowhead Mills Seven-Grain Cereal"],
     instructions: ["Preheat oven to 350\u00B0F. Lightly coat two medium bread pans with canola oil spray.","Spread pecans and sunflower seeds on a sheet tray and toast until golden brown, about 5 minutes. Set aside.","In a large bowl, combine water, whole-wheat flour, yeast, honey, and flax seed. Let sit in a warm area until doubled in size, about 1 hour.","Add remaining ingredients to yeast mixture and mix well. Knead 3 minutes with a dough hook (or 5 minutes by hand). Dough will be elastic but not smooth.","Place in a lightly oiled bowl, cover, and let proof in a warm area for 1 hour. When doubled, punch down and portion into 2 loaves. Place in loaf pans and proof again until doubled.","Bake 30-40 minutes, or until golden brown."],
-    notes: "Can also be used for 3 oz sandwich rolls — bake on a sheet pan for 15-20 minutes."
+    notes: "Can also be used for 3 oz sandwich rolls â bake on a sheet pan for 15-20 minutes."
   },
   {
     id: 90, name: "Spicy Grilled Shrimp", source: "Canyon Ranch",
@@ -1450,7 +1484,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "26g", protein: "1g", fat: "trace", fiber: "2g", sodium: "9mg"},
     ingredients: ["1 cup frozen strawberries","1 cup fresh orange juice","3 Tbsp apple juice concentrate","1 tsp fresh lemon juice"],
     instructions: ["Combine all ingredients in a blender and pur\u00E9e until smooth."],
-    notes: "A non-alcoholic frozen daiquiri — dairy-free and refreshing."
+    notes: "A non-alcoholic frozen daiquiri â dairy-free and refreshing."
   },
   {
     id: 92, name: "Oatmeal Cookie", source: "Canyon Ranch",
@@ -1459,7 +1493,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "13g", protein: "1g", fat: "2g", fiber: "1g", sodium: "49mg"},
     ingredients: ["1/4 cup unsalted butter","1/3 cup low-fat cream cheese","1 cup brown sugar","1 large egg yolk","3/4 tsp pure vanilla extract","3/4 cup all-purpose flour","1 1/2 cups rolled oats","3/4 tsp aluminum-free baking powder","3/4 tsp ground cinnamon","1/2 tsp sea salt","1/2 cup raisins"],
     instructions: ["Preheat oven to 350\u00B0F. Lightly coat a baking sheet with canola oil spray.","In a large bowl, cream butter, cream cheese, and sugar. Add egg yolk and vanilla extract, mix briefly.","Combine remaining dry ingredients and raisins in a large bowl. Add to creamed mixture and mix until a dough forms.","Portion heaping teaspoonfuls (about 3/4 oz) onto baking sheet 1 1/2 inches apart. Bake 7 minutes. Lightly flatten with finger. Rotate baking sheet and bake 4 more minutes."],
-    notes: "Makes a big batch — 38 cookies at only 75 calories each."
+    notes: "Makes a big batch â 38 cookies at only 75 calories each."
   },
   {
     id: 93, name: "Orange Vegetable Stir-Fry", source: "Canyon Ranch",
@@ -1495,7 +1529,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "19g", protein: "7g", fat: "3g", fiber: "4g", sodium: "317mg"},
     ingredients: ["1 Tbsp extra-virgin olive oil","1/2 cup chopped onions","1/4 cup chopped carrots","1/4 cup chopped celery","1 Tbsp minced garlic","1 cup red lentils","1 1/2 qt vegetable stock","1/4 tsp dried basil","pinch dried oregano","pinch dried thyme","1 1/2 tsp white distilled vinegar","1/2 tsp Worcestershire sauce","1 tsp sea salt","1/4 tsp freshly ground black pepper"],
     instructions: ["Heat olive oil in a large saucepan over medium heat. Saut\u00E9 onions, carrots, celery, and garlic until onions are translucent.","Add vegetable stock, lentils, and herbs. Bring to a boil, reduce heat, and simmer for 1 hour until lentils are soft.","Remove from heat, cool slightly, and pur\u00E9e in a blender until smooth. Add vinegar, Worcestershire, salt, and pepper. Mix well."],
-    notes: "No soaking needed — red lentils cook down and thicken naturally."
+    notes: "No soaking needed â red lentils cook down and thicken naturally."
   },
   {
     id: 97, name: "Shrimp Pad Thai", source: "Canyon Ranch",
@@ -1522,7 +1556,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "21g", protein: "trace", fat: "trace", fiber: "1g", sodium: "38mg"},
     ingredients: ["1/3 cup cane sugar (for simple syrup)","1/3 cup water (for simple syrup)","1 1/4 cups fresh fruit (mangoes, berries, or papayas)","1/4 cup cane sugar (for pur\u00E9e)","2 Tbsp fresh lime juice","3 Tbsp fresh lemon juice","6 Tbsp water (for sweet and sour mix)","3 Tbsp simple syrup (for sweet and sour mix)","2 Tbsp fresh orange juice","6 cups club soda"],
     instructions: ["Make simple syrup: Mix sugar and water in a small saucepan. Heat until sugar dissolves. Set aside.","Place fruit and 1/4 cup sugar in a blender and pur\u00E9e until smooth.","Combine lime juice, lemon juice, 6 Tbsp water, 3 Tbsp simple syrup, and orange juice for the sweet and sour mix.","In each glass: place 3 Tbsp fruit pur\u00E9e, 2 Tbsp sweet and sour mix, 1 Tbsp simple syrup, and 3/4 cup club soda. Stir, add ice, and serve."],
-    notes: "Use any seasonal fruit — mangoes, berries, or papayas all work great."
+    notes: "Use any seasonal fruit â mangoes, berries, or papayas all work great."
   },
   {
     id: 100, name: "Spring Pea Soup", source: "Canyon Ranch",
@@ -1549,7 +1583,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "4g", protein: "trace", fat: "0g", fiber: "trace", sodium: "325mg"},
     ingredients: ["1/2 cup fresh lime juice","1/2 cup low-sodium tamari sauce","1/2 cup water","4 Tbsp rice vinegar","1 Tbsp minced ginger","2 Tbsp cane sugar"],
     instructions: ["Combine all ingredients and mix well."],
-    notes: "No-cook sauce — great for grilled fish, shrimp, or stir-fries."
+    notes: "No-cook sauce â great for grilled fish, shrimp, or stir-fries."
   },
   {
     id: 103, name: "Thai Peanut Sauce", source: "Canyon Ranch",
@@ -1567,7 +1601,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "19g", protein: "4g", fat: "6g", fiber: "0g", sodium: "34mg"},
     ingredients: ["2 large eggs, separated","1/4 cup cane sugar","1/2 cup chopped bittersweet chocolate","1/3 cup nonfat plain yogurt","1 cup 2% milk","1/4 cup cane sugar (for cr\u00E8me anglaise)","1/2 vanilla bean","1/4 cup brewed coffee","3 large egg yolks"],
     instructions: ["Lightly coat eight 4-oz ramekins with canola oil spray and dust with confectioners' sugar.","Combine egg yolks with 1 Tbsp sugar. Beat until very pale and thick.","Beat egg whites on high until foamy. Add remaining sugar 1 tsp at a time, beating until stiff peaks form.","Melt chocolate in a double boiler. Remove from heat, stir in yogurt. Temper yolks by adding a small amount of chocolate, then combine. Fold in egg whites. Spoon 1/4 cup into each mold. Refrigerate at least 30 minutes.","For cr\u00E8me anglaise: Combine milk, 1/4 cup sugar, vanilla bean, and coffee in a saucepan. Bring to a simmer. Remove vanilla bean, scrape seeds into mixture. Temper 3 egg yolks with hot milk, add back to pan. Cook 1 minute. Cool, then refrigerate at least 1 hour.","Preheat oven to 325\u00B0F. Bake cakes 12-15 minutes until they spring back when touched. Cool 2-3 minutes.","Invert onto plates and serve with 2 Tbsp cr\u00E8me anglaise."],
-    notes: "An elegant, individual chocolate cake — only 150 calories. The coffee cr\u00E8me anglaise is the perfect pairing."
+    notes: "An elegant, individual chocolate cake â only 150 calories. The coffee cr\u00E8me anglaise is the perfect pairing."
   },
   {
     id: 105, name: "Watermelon Feta Salad", source: "Canyon Ranch",
@@ -1585,7 +1619,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "trace", protein: "28g", fat: "10g", fiber: "trace", sodium: "205mg"},
     ingredients: ["4 salmon fillets (4 oz each)","1 Tbsp sesame seeds","1 Tbsp black sesame seeds","1/4 tsp sea salt","1 Tbsp sesame oil","3 Tbsp sweet chili dipping sauce","3 Tbsp fresh orange juice","2 Tbsp Worcestershire sauce","2 Tbsp rice vinegar","2 Tbsp toasted sesame oil"],
     instructions: ["Preheat oven to 400\u00B0F.","In a shallow bowl, combine sesame seeds and salt. Sprinkle over salmon.","In a large saut\u00E9 pan, heat sesame oil over medium heat. Saut\u00E9 salmon 1 minute on each side, then place in oven for 5-10 minutes.","For sauce: Combine sweet chili sauce, orange juice, Worcestershire, rice vinegar, and toasted sesame oil.","Serve sauce atop salmon."],
-    notes: "The sesame orange sauce is a no-cook blend — comes together in seconds."
+    notes: "The sesame orange sauce is a no-cook blend â comes together in seconds."
   },
   {
     id: 107, name: "Roasted Fennel", source: "Canyon Ranch",
@@ -1594,7 +1628,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "4g", protein: "1g", fat: "trace", fiber: "2g", sodium: "146mg"},
     ingredients: ["1 fresh fennel bulb, tops removed","1/4 tsp sea salt","1/4 tsp freshly ground black pepper"],
     instructions: ["Preheat oven to 400\u00B0F.","Cut fennel bulb into quarters. Season with salt and pepper.","Place on baking pan and roast about 20 minutes until fennel begins to brown.","Add 1/2 cup water to pan and cover with aluminum foil. Return to oven and roast until soft, about 20 more minutes."],
-    notes: "Vegetarian. Only 20 calories — a simple, elegant side dish. Just 3 ingredients."
+    notes: "Vegetarian. Only 20 calories â a simple, elegant side dish. Just 3 ingredients."
   },
   {
     id: 108, name: "Roasted Corn Chowder", source: "Canyon Ranch",
@@ -1612,7 +1646,7 @@ const INITIAL_RECIPES = [
     nutrition: {carbs: "27g", protein: "26g", fat: "10g", fiber: "6g", sodium: "608mg"},
     ingredients: ["1 whole 3-4 lb roasting chicken","1/2 cup chopped celery","1/2 cup chopped carrots","1/2 cup chopped yellow onion","1/2 tsp sea salt","1/2 tsp freshly ground black pepper","3 medium potatoes (approx 1 lb)","1/2 cup skim milk","1 tsp minced garlic","2 tsp chopped chives","1/4 tsp sea salt (for potatoes)","1/4 tsp freshly ground black pepper (for potatoes)","2 tsp unsalted butter (for potatoes)","1 tsp canola oil","1 1/2 Tbsp unsalted butter (for gravy)","1/3 cup diced yellow onion (for gravy)","1 1/2 Tbsp all-purpose flour","1 cup chicken broth","pinch freshly ground black pepper (for gravy)","1/2 tsp chopped fresh sage"],
     instructions: ["Preheat oven to 350\u00B0F. Mix celery, carrots, and onions. Stuff chicken with vegetable mixture. Season with salt and pepper.","Place in a roasting pan, cover, and roast 1-1.5 hours until juices run clear. Cut in half, remove back, ribs, wings, and drumstick. Separate thigh and breast, remove skin.","For mashed potatoes: Peel and cube potatoes. Boil 10-15 minutes until tender. Drain. Add milk, garlic, chives, salt, pepper, and butter. Whip until smooth.","For gravy: Saut\u00E9 onions in canola oil and butter until translucent. Add flour, cook 3-5 minutes. Add broth and whisk until it boils and thickens. Add pepper and sage. Strain.","Serve 4 oz chicken with 1/3 cup mashed potatoes and 1/4 cup gravy."],
-    notes: "A complete comfort food dinner — includes garlic mashed potatoes and sage gravy."
+    notes: "A complete comfort food dinner â includes garlic mashed potatoes and sage gravy."
   },
   {
     id: 110, name: "Red Chili Chicken Quesadilla", source: "Canyon Ranch",
@@ -1695,8 +1729,19 @@ function App() {
   const [pantryInput, setPantryInput] = useState("");
   const [toast, setToast] = useState(null);
   const [checkedIngredients, setCheckedIngredients] = useState({});
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
 
   useEffect(() => { window._recipeData = recipes; }, [recipes]);
+
+  // Show "Add to Home Screen" banner on iOS Safari if not already installed and not dismissed
+  useEffect(() => {
+    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    const isStandalone = window.navigator.standalone === true;
+    const dismissed = localStorage.getItem("cr_install_dismissed");
+    if (isIOS && !isStandalone && !dismissed) {
+      setTimeout(() => setShowInstallBanner(true), 2000);
+    }
+  }, []);
 
   const showToast = (msg) => { setToast(msg); setTimeout(() => setToast(null), 2000); };
 
@@ -1742,12 +1787,7 @@ function App() {
     if (item && !pantryItems.includes(item)) { setPantryItems(prev => [...prev, item]); setPantryInput(""); }
   };
 
-  const addRecipe = (nr) => {
-    setRecipes(prev => [...prev, {...nr, id: Date.now(), source: "My Recipe"}]);
-    showToast("Recipe saved!");
-    setActiveTab("browse");
-  };
-
+  // addRecipe function removed - replaced with Suggest tab
   const e = React.createElement;
 
   return e("div", {className: "app-container"},
@@ -1912,7 +1952,32 @@ function App() {
       checkedIngredients, setCheckedIngredients
     }),
 
-    toast && e("div", {className: "toast"}, toast)
+    toast && e("div", {className: "toast"}, toast),
+
+    // Add to Home Screen banner for iOS
+    showInstallBanner && e("div", {className: "install-banner"},
+      e("div", {className: "install-banner-content"},
+        e("div", {style: {display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px"}},
+          e("img", {src: "icon-192.png", alt: "CR Recipes", style: {width: "40px", height: "40px", borderRadius: "10px"}}),
+          e("div", null,
+            e("div", {style: {fontWeight: "600", color: "var(--text-primary)", fontSize: "15px"}}, "Add to Home Screen"),
+            e("div", {style: {color: "var(--text-secondary)", fontSize: "13px"}}, "Access CR Recipes like an app")
+          )
+        ),
+        e("div", {style: {color: "var(--text-secondary)", fontSize: "13px", lineHeight: "1.5"}},
+          "Tap ",
+          e("span", {style: {display: "inline-block", verticalAlign: "middle", fontSize: "16px"}}, "\u{1F4E4}"),
+          " at the bottom of Safari, then tap ",
+          e("strong", null, "Add to Home Screen")
+        ),
+        e("div", {style: {display: "flex", justifyContent: "flex-end", marginTop: "10px"}},
+          e("button", {
+            className: "install-banner-dismiss",
+            onClick: () => { setShowInstallBanner(false); localStorage.setItem("cr_install_dismissed", "1"); }
+          }, "Got it")
+        )
+      )
+    )
   );
 }
 
@@ -1978,6 +2043,22 @@ function RecipeDetail({recipe, onClose, onAddToList, isInList, checkedIngredient
 
       e("div", {className: "source-line"}, recipe.source)
     )
+  );
+}
+
+function SuggestRecipeForm() {
+  const e = React.createElement;
+  return e("div", {className: "form-section", style: {textAlign: "center", padding: "40px 24px"}},
+    e("div", {style: {fontSize: "48px", marginBottom: "16px"}}, "\u{1F4E8}"),
+    e("div", {className: "section-title", style: {marginBottom: "12px"}}, "Suggest a Recipe"),
+    e("p", {style: {color: "var(--text-secondary)", fontSize: "14px", marginBottom: "24px", maxWidth: "360px", marginLeft: "auto", marginRight: "auto"}}, "Know a great recipe? We\u2019d love to hear about it! Submit your suggestion and we\u2019ll review it for the collection."),
+    e("a", {
+      href: "https://docs.google.com/forms/d/e/1FAIpQLScNsA0syY_69MYhbK8SZE-gexPcLtZi9nAaghpJkJFCXnJCVg/viewform",
+      target: "_blank",
+      rel: "noopener noreferrer",
+      className: "save-recipe-btn",
+      style: {display: "inline-block", textDecoration: "none", padding: "14px 32px"}
+    }, "Open Suggestion Form")
   );
 }
 
