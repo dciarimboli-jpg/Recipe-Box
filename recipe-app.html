@@ -1777,7 +1777,7 @@ function App() {
       [{id:"browse", icon:"\u{1F4D6}", label:"Recipes"},
        {id:"pantry", icon:"\u{1F96C}", label:"On Hand"},
        {id:"shopping", icon:"\u{1F6D2}", label:"Shop"},
-       {id:"add", icon:"\u2795", label:"Add New"}
+       {id:"suggest", icon:"\u{1F4E8}", label:"Suggest"}
       ].map(t => e("button", {
         key: t.id,
         className: "tab" + (activeTab === t.id ? " active" : ""),
@@ -1901,7 +1901,7 @@ function App() {
     ),
 
     // Add recipe
-    activeTab === "add" && e(AddRecipeForm, {onSave: addRecipe}),
+    activeTab === "suggest" && e(SuggestRecipeForm, null),
 
     // Detail overlay
     selectedRecipe && e(RecipeDetail, {
@@ -1981,67 +1981,19 @@ function RecipeDetail({recipe, onClose, onAddToList, isInList, checkedIngredient
   );
 }
 
-function AddRecipeForm({onSave}) {
+function SuggestRecipeForm() {
   const e = React.createElement;
-  const [name, setName] = useState("");
-  const [time, setTime] = useState("");
-  const [difficulty, setDifficulty] = useState("Easy");
-  const [servings, setServings] = useState("");
-  const [calories, setCalories] = useState("");
-  const [cat, setCat] = useState("Poultry");
-  const [ingredients, setIngredients] = useState("");
-  const [instructions, setInstructions] = useState("");
-  const [notes, setNotes] = useState("");
-
-  const handleSave = () => {
-    if (!name.trim() || !ingredients.trim()) return;
-    onSave({
-      name: name.trim(), time: time || "N/A", difficulty,
-      servings: servings || "N/A", calories: parseInt(calories) || 0, category: cat,
-      nutrition: {carbs: "-", protein: "-", fat: "-", fiber: "-", sodium: "-"},
-      ingredients: ingredients.split("\n").map(s => s.trim()).filter(Boolean),
-      instructions: instructions.split("\n").map(s => s.trim()).filter(Boolean),
-      notes: notes.trim()
-    });
-    setName(""); setTime(""); setServings(""); setCalories("");
-    setIngredients(""); setInstructions(""); setNotes("");
-  };
-
-  return e("div", {className: "form-section"},
-    e("div", {className: "section-title", style: {marginBottom: "16px"}}, "Add a New Recipe"),
-    e("div", {className: "form-group"},
-      e("label", null, "Recipe Name *"),
-      e("input", {value: name, onChange: ev => setName(ev.target.value), placeholder: "e.g. Grandma's Chicken Soup"})
-    ),
-    e("div", {className: "form-row"},
-      e("div", {className: "form-group"}, e("label", null, "Time"), e("input", {value: time, onChange: ev => setTime(ev.target.value), placeholder: "30 min"})),
-      e("div", {className: "form-group"}, e("label", null, "Servings"), e("input", {value: servings, onChange: ev => setServings(ev.target.value), placeholder: "4"}))
-    ),
-    e("div", {className: "form-row"},
-      e("div", {className: "form-group"}, e("label", null, "Difficulty"),
-        e("select", {value: difficulty, onChange: ev => setDifficulty(ev.target.value)},
-          ["Easy", "Moderate", "Advanced"].map(d => e("option", {key: d, value: d}, d))
-        )),
-      e("div", {className: "form-group"}, e("label", null, "Calories"),
-        e("input", {type: "number", value: calories, onChange: ev => setCalories(ev.target.value), placeholder: "200"}))
-    ),
-    e("div", {className: "form-group"}, e("label", null, "Category"),
-      e("select", {value: cat, onChange: ev => setCat(ev.target.value)},
-        CATEGORIES.filter(c => c !== "All").map(c => e("option", {key: c, value: c}, c))
-      )),
-    e("div", {className: "form-group"},
-      e("label", null, "Ingredients * (one per line)"),
-      e("textarea", {value: ingredients, onChange: ev => setIngredients(ev.target.value), placeholder: "1 cup flour\n2 eggs\n1/2 cup sugar"})
-    ),
-    e("div", {className: "form-group"},
-      e("label", null, "Instructions (one step per line)"),
-      e("textarea", {value: instructions, onChange: ev => setInstructions(ev.target.value), placeholder: "Preheat oven to 350\u00B0F.\nMix dry ingredients.\nAdd wet ingredients and stir."})
-    ),
-    e("div", {className: "form-group"},
-      e("label", null, "Cook's Notes"),
-      e("textarea", {value: notes, onChange: ev => setNotes(ev.target.value), placeholder: "Tips, substitutions, variations\u2026", style: {minHeight: "70px"}})
-    ),
-    e("button", {className: "save-recipe-btn", onClick: handleSave}, "Save Recipe")
+  return e("div", {className: "form-section", style: {textAlign: "center", padding: "40px 24px"}},
+    e("div", {style: {fontSize: "48px", marginBottom: "16px"}}, "\u{1F4E8}"),
+    e("div", {className: "section-title", style: {marginBottom: "12px"}}, "Suggest a Recipe"),
+    e("p", {style: {color: "var(--text-secondary)", fontSize: "14px", marginBottom: "24px", maxWidth: "360px", marginLeft: "auto", marginRight: "auto"}}, "Know a great recipe? We\u2019d love to hear about it! Submit your suggestion and we\u2019ll review it for the collection."),
+    e("a", {
+      href: "https://docs.google.com/forms/d/13qP2jJg4zjhQgxwotbakI2jJh3HYhHB6HSjXb2iZTDI/viewform",
+      target: "_blank",
+      rel: "noopener noreferrer",
+      className: "save-recipe-btn",
+      style: {display: "inline-block", textDecoration: "none", padding: "14px 32px"}
+    }, "Open Suggestion Form")
   );
 }
 
