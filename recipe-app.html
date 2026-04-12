@@ -398,8 +398,19 @@
   /* ─── Nutrition ─── */
   .nutrition-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px;
+  }
+  .nutrition-grid .nutrition-item:nth-child(1),
+  .nutrition-grid .nutrition-item:nth-child(2),
+  .nutrition-grid .nutrition-item:nth-child(3) {
+    grid-column: span 2;
+  }
+  .nutrition-grid .nutrition-item:nth-child(4) {
+    grid-column: 2 / 4;
+  }
+  .nutrition-grid .nutrition-item:nth-child(5) {
+    grid-column: 4 / 6;
   }
   .nutrition-item {
     text-align: center;
