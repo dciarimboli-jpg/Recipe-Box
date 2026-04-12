@@ -397,30 +397,22 @@
 
   /* ─── Nutrition ─── */
   .nutrition-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 8px;
-  }
-  .nutrition-grid .nutrition-item:nth-child(1),
-  .nutrition-grid .nutrition-item:nth-child(2),
-  .nutrition-grid .nutrition-item:nth-child(3) {
-    grid-column: span 2;
-  }
-  .nutrition-grid .nutrition-item:nth-child(4) {
-    grid-column: 2 / 4;
-  }
-  .nutrition-grid .nutrition-item:nth-child(5) {
-    grid-column: 4 / 6;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
   }
   .nutrition-item {
-    text-align: center;
-    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 16px;
     background: var(--surface);
     border-radius: var(--radius);
+    min-width: 72px;
     border: 1px solid var(--border-light);
   }
-  .nutrition-item .n-val { font-size: 16px; font-weight: 700; color: var(--primary); }
-  .nutrition-item .n-label { font-size: 10px; color: var(--text-tertiary); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+  .nutrition-item .n-val { font-size: 15px; font-weight: 700; color: var(--primary); }
+  .nutrition-item .n-label { font-size: 11px; color: var(--text-tertiary); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; }
 
   /* ─── Shopping list ─── */
   .shopping-section { padding: 20px 24px; }
