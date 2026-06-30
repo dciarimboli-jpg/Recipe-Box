@@ -2764,6 +2764,18 @@ function App() {
 
   useEffect(() => { window._recipeData = recipes; }, [recipes]);
 
+  // Fetch the latest recipes fresh on every launch (cache-busted) so the
+  // Home Screen app always shows new recipes even when the page itself is cached.
+  // Falls back silently to the inline INITIAL_RECIPES list if offline.
+  useEffect(() => {
+    fetch("recipes.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (Array.isArray(data) && data.length) { setRecipes(data); }
+      })
+      .catch(function () {});
+  }, []);
+
   // Show "Add to Home Screen" banner on iOS Safari if not already installed and not dismissed
   useEffect(() => {
     const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
