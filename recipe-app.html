@@ -215,6 +215,22 @@
     color: var(--text-tertiary);
     border: 1px solid var(--border);
   }
+  .new-tag {
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+  }
+  .detail-new-badge {
+    display: inline-block;
+    background: #2e7d32;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 4px;
+  }
 
   /* ─── Recipe detail ─── */
   .detail-overlay {
@@ -386,6 +402,22 @@
   }
   .add-to-list-btn:active { transform: scale(0.98); background: var(--primary-dark); }
   .added-btn { background: var(--text-tertiary); }
+  .share-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--surface);
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.2px;
+    margin-top: 10px;
+  }
+  .share-btn:active { transform: scale(0.98); background: var(--primary-light, rgba(0,0,0,0.03)); }
 
   /* ─── Nutrition ─── */
   .nutrition-grid {
@@ -2677,7 +2709,7 @@ const INITIAL_RECIPES = [
     notes: "From Ottolenghi (Plenty). A comforting brunch dish — serve with a salad of seasonal leaves, grilled halloumi, or smoked fish. Leftover lime butter keeps in the fridge; smear it over a baked sweet potato. Nutrition is estimated."
   },
   {
-    id: 151, name: "Zucchini & Goat Cheese Tart", source: "Ina Garten",
+    id: 151, name: "Zucchini & Goat Cheese Tart", source: "Ina Garten", dateAdded: "2026-06-30",
     time: "1 hr 55 min", difficulty: "Easy", servings: "6", calories: 340,
     category: "Vegetable",
     nutrition: {carbs: "22g", protein: "9g", fat: "26g", fiber: "1g", sodium: "400mg"},
@@ -2686,7 +2718,7 @@ const INITIAL_RECIPES = [
     notes: "From Ina Garten (Cooking for Jeffrey). Shared by KBB. Salting and squeezing the zucchini keeps the tart from getting watery. Nutrition is estimated."
   },
   {
-    id: 152, name: "Jennifer Aniston Quinoa Salad", source: "Eating Bird Food",
+    id: 152, name: "Jennifer Aniston Quinoa Salad", source: "Eating Bird Food", dateAdded: "2026-06-30",
     time: "25 min", difficulty: "Easy", servings: "6", calories: 391,
     category: "Salad",
     nutrition: {carbs: "37g", protein: "14g", fat: "21g", fiber: "7g", sodium: "274mg"},
@@ -2695,7 +2727,7 @@ const INITIAL_RECIPES = [
     notes: "The viral Jennifer Aniston salad, made with quinoa (Eating Bird Food). Shared by KBB, who adds: a hard-boiled egg and/or avocado if on hand; roasted salted pepitas if no pistachios; the mint is key, and basil too; if you have preserved lemons, blend one into the dressing with the fresh lemon for more lemon intensity. Nutrition from the source recipe."
   },
   {
-    id: 153, name: "Vietnamese Beef Lettuce Wraps", source: "From A Chef's Kitchen",
+    id: 153, name: "Vietnamese Beef Lettuce Wraps", source: "From A Chef's Kitchen", dateAdded: "2026-06-30",
     time: "1 hr", difficulty: "Moderate", servings: "2-3", calories: 714,
     category: "Beef",
     nutrition: {carbs: "45g", protein: "55g", fat: "36g", fiber: "8g", sodium: "3975mg"},
@@ -2704,7 +2736,7 @@ const INITIAL_RECIPES = [
     notes: "From A Chef's Kitchen (Carol). Shared by KBB, who says the basil and mint are key. Filling can be made 1-2 days ahead. Sodium runs high — use low-sodium soy sauce to cut it down. Nutrition from the source recipe (per serving)."
   },
   {
-    id: 154, name: "Lemon Shallot Vinaigrette", source: "Rouxbe",
+    id: 154, name: "Lemon Shallot Vinaigrette", source: "Rouxbe", dateAdded: "2026-06-30",
     time: "10 min", difficulty: "Easy", servings: "8", calories: 90,
     category: "Sauce/Dressing",
     nutrition: {carbs: "9g", protein: "0g", fat: "7g", fiber: "0g", sodium: "150mg"},
@@ -2713,7 +2745,7 @@ const INITIAL_RECIPES = [
     notes: "From Rouxbe. Shared by KBB. A bright, tart everyday dressing with little oil — add a bit more oil if it's too tart for you. Great base to riff on (Dijon, fresh herbs, different vinegars). Nutrition is estimated."
   },
   {
-    id: 155, name: "One-Pan Farro with Tomatoes", source: "Smitten Kitchen",
+    id: 155, name: "One-Pan Farro with Tomatoes", source: "Smitten Kitchen", dateAdded: "2026-06-30",
     time: "40 min", difficulty: "Easy", servings: "4", calories: 250,
     category: "Side Dish",
     nutrition: {carbs: "42g", protein: "8g", fat: "6g", fiber: "6g", sodium: "480mg"},
@@ -2722,7 +2754,7 @@ const INITIAL_RECIPES = [
     notes: "From Smitten Kitchen. Shared by KBB. A one-pan weeknight side — everything simmers together in a single skillet. Nutrition is estimated."
   },
   {
-    id: 156, name: "Pasta al Limone (Creamy Lemon Pasta)", source: "Pamela Salzman",
+    id: 156, name: "Pasta al Limone (Creamy Lemon Pasta)", source: "Pamela Salzman", dateAdded: "2026-07-08",
     time: "25 min", difficulty: "Easy", servings: "6", calories: 445,
     category: "Side Dish",
     nutrition: {carbs: "55g", protein: "16g", fat: "17g", fiber: "3g", sodium: "450mg"},
@@ -2778,7 +2810,17 @@ const NUTRITION_BOOSTERS = [
   {name: "Orange", serving: "1 medium", protein: 1, fiber: 3, calories: 62, type: "snack", tip: "Hydrating and easy to grab"}
 ];
 
-const CATEGORIES = ["All", "Poultry", "Beef", "Seafood", "Soup", "Salad", "Vegetable", "Side Dish", "Sauce/Dressing", "Breakfast", "Bread/Baking", "Dessert", "Beverage"];
+const CATEGORIES = ["All", "Recently Added", "Poultry", "Beef", "Seafood", "Soup", "Salad", "Vegetable", "Side Dish", "Sauce/Dressing", "Breakfast", "Bread/Baking", "Dessert", "Beverage"];
+
+// How long a recipe wears the "New" badge before it quietly fades.
+const NEW_DAYS = 90;
+function isNewRecipe(r) {
+  if (!r || !r.dateAdded) return false;
+  const added = new Date(r.dateAdded + "T00:00:00");
+  if (isNaN(added.getTime())) return false;
+  const days = (Date.now() - added.getTime()) / 86400000;
+  return days >= 0 && days <= NEW_DAYS;
+}
 
 function App() {
   const [recipes, setRecipes] = useState(() => {
@@ -2830,6 +2872,71 @@ function App() {
       .catch(function () {});
   }, []);
 
+  // ─── Deep linking ───
+  // When the app opens with a #recipe/<id> or #shopping/<id,id,...> hash in the
+  // URL (e.g. a link someone shared), open that recipe or rebuild that shopping
+  // list instead of just showing the home screen. Runs once, after recipes load.
+  const deepLinkHandled = React.useRef(false);
+  useEffect(() => {
+    if (deepLinkHandled.current || !recipes || !recipes.length) return;
+    const hash = window.location.hash || "";
+    const recipeMatch = hash.match(/^#recipe\/(\d+)/);
+    const shoppingMatch = hash.match(/^#shopping\/([\d,]+)/);
+    if (recipeMatch) {
+      const r = recipes.find(x => String(x.id) === recipeMatch[1]);
+      if (r) { setSelectedRecipe(r); setCheckedIngredients({}); deepLinkHandled.current = true; }
+    } else if (shoppingMatch) {
+      const items = shoppingMatch[1].split(",")
+        .map(id => recipes.find(x => String(x.id) === id))
+        .filter(Boolean);
+      if (items.length) { setShoppingList(items); setActiveTab("shopping"); deepLinkHandled.current = true; }
+    } else {
+      deepLinkHandled.current = true; // no deep link — stop checking
+    }
+  }, [recipes]);
+
+  // ─── Sharing ───
+  const buildShareUrl = (hash) =>
+    window.location.origin + window.location.pathname + (hash || "");
+
+  const doShare = async (title, text, url) => {
+    try {
+      if (navigator.share) { await navigator.share({ title, text, url }); return; }
+    } catch (err) {
+      if (err && err.name === "AbortError") return; // user cancelled the share sheet
+    }
+    try {
+      await navigator.clipboard.writeText(text + "\n\n" + url);
+      showToast("Copied — paste to share");
+    } catch (e) {
+      showToast("Sharing isn't available here");
+    }
+  };
+
+  const shareRecipe = (recipe) => {
+    const lines = [recipe.name];
+    const meta = [recipe.source, "Serves " + recipe.servings, recipe.time].filter(Boolean).join(" · ");
+    if (meta) lines.push(meta);
+    lines.push("", "INGREDIENTS");
+    recipe.ingredients.forEach(i => lines.push("• " + i));
+    lines.push("", "INSTRUCTIONS");
+    recipe.instructions.forEach((s, i) => lines.push((i + 1) + ". " + s));
+    if (recipe.notes) lines.push("", "Note: " + recipe.notes);
+    doShare(recipe.name, lines.join("\n"), buildShareUrl("#recipe/" + recipe.id));
+  };
+
+  const shareShoppingList = () => {
+    if (!shoppingList.length) { showToast("Your shopping list is empty"); return; }
+    const lines = ["Shopping List", ""];
+    shoppingList.forEach(recipe => {
+      lines.push(recipe.name.toUpperCase());
+      recipe.ingredients.forEach(i => lines.push("• " + i));
+      lines.push("");
+    });
+    const ids = shoppingList.map(r => r.id).join(",");
+    doShare("Shopping List", lines.join("\n").trim(), buildShareUrl("#shopping/" + ids));
+  };
+
   // Show "Add to Home Screen" banner on iOS Safari if not already installed and not dismissed
   useEffect(() => {
     const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
@@ -2844,7 +2951,13 @@ function App() {
 
   const filtered = useMemo(() => {
     let list = recipes;
-    if (category !== "All") list = list.filter(r => r.category === category);
+    if (category === "Recently Added") {
+      list = recipes.filter(r => r.dateAdded)
+        .slice()
+        .sort((a, b) => (b.dateAdded || "").localeCompare(a.dateAdded || ""));
+    } else if (category !== "All") {
+      list = list.filter(r => r.category === category);
+    }
     if (search.trim()) {
       const q = search.toLowerCase();
       list = list.filter(r =>
@@ -3092,6 +3205,7 @@ function App() {
             e("span", {className: "meta-tag"}, "Serves " + r.servings)
           ),
           e("div", {className: "recipe-tags"},
+            isNewRecipe(r) && e("span", {className: "recipe-tag new-tag"}, "✨ New"),
             e("span", {className: "recipe-tag"}, r.category),
             e("span", {className: "recipe-tag source-tag"}, r.source)
           )
@@ -3178,6 +3292,7 @@ function App() {
               );
             })
           )),
+          e("button", {className: "share-btn", onClick: shareShoppingList, style: {marginTop: "16px"}}, "\u{1F4E4} Share List"),
           e("button", {className: "clear-list-btn", onClick: () => { setShoppingList([]); setCheckedItems({}); }}, "Clear Entire List")
         )
     ),
@@ -3398,6 +3513,7 @@ function App() {
       recipe: selectedRecipe,
       onClose: () => setSelectedRecipe(null),
       onAddToList: addToShoppingList,
+      onShare: shareRecipe,
       isInList: shoppingList.some(r => r.id === selectedRecipe.id),
       checkedIngredients, setCheckedIngredients
     }),
@@ -3445,7 +3561,7 @@ function App() {
   );
 }
 
-function RecipeDetail({recipe, onClose, onAddToList, isInList, checkedIngredients, setCheckedIngredients}) {
+function RecipeDetail({recipe, onClose, onAddToList, onShare, isInList, checkedIngredients, setCheckedIngredients}) {
   const e = React.createElement;
   const toggleIng = (i) => setCheckedIngredients(prev => ({...prev, [i]: !prev[i]}));
 
@@ -3455,6 +3571,7 @@ function RecipeDetail({recipe, onClose, onAddToList, isInList, checkedIngredient
       e("h2", null, recipe.name)
     ),
     e("div", {className: "detail-body"},
+      isNewRecipe(recipe) && e("div", {className: "detail-new-badge"}, "✨ Newly Added"),
       // Hero
       e("div", {className: "detail-hero"},
         e("div", {className: "detail-meta-row"},
@@ -3504,6 +3621,11 @@ function RecipeDetail({recipe, onClose, onAddToList, isInList, checkedIngredient
         onClick: () => onAddToList(recipe),
         style: {marginTop: "20px"}
       }, isInList ? "\u2713 On Shopping List" : "Add to Shopping List"),
+
+      onShare && e("button", {
+        className: "share-btn",
+        onClick: () => onShare(recipe)
+      }, "\u{1F4E4} Share Recipe"),
 
       e("div", {className: "source-line"}, recipe.source)
     )
